@@ -51,7 +51,7 @@
             android:layout_height="match_parent"
             android:layout_weight="6"
             android:background="@drawable/white_radius_button_selector"
-            android:text="Tự động"
+            android:text="应用"
             android:textAllCaps="false" />
 
         <ImageButton

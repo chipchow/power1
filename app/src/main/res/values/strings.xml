@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Passport Photo</string>
-    <string name="select_id_photo_size">Chọn kích thước</string>
+    <string name="app_name">小美证件照</string>
+    <string name="select_id_photo_size">选择照片大小</string>
 </resources>

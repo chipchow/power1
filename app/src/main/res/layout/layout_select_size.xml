@@ -11,7 +11,7 @@
         android:layout_weight="30"
         android:fontFamily="cursive"
         android:gravity="center"
-        android:text="Chọn kích thước"
+        android:text="规格"
         android:textAllCaps="true"
         android:textColor="@color/my_primary"
         android:textSize="20sp" />
@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@drawable/custom_radio_button"
-                android:text="Ảnh 2x3"
+                android:text="尺寸 2x3"
                 android:textSize="20sp" />
 
             <RadioButton
@@ -46,7 +46,7 @@
                 android:layout_marginTop="10dp"
                 android:button="@drawable/custom_radio_button"
                 android:checked="true"
-                android:text="Ảnh 3x4"
+                android:text="尺寸 3x4"
                 android:textSize="20sp" />
 
             <RadioButton
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:button="@drawable/custom_radio_button"
-                android:text="Ảnh 4x6"
+                android:text="尺寸 4x6"
                 android:textSize="20sp" />
         </RadioGroup>
     </LinearLayout>

@@ -48,7 +48,7 @@
                 android:layout_marginRight="100dp"
                 android:background="@drawable/custom_textview_background"
                 android:gravity="center"
-                android:text="Đổi màu"
+                android:text="调色板"
                 android:textSize="20sp" />
         </LinearLayout>
     </FrameLayout>
