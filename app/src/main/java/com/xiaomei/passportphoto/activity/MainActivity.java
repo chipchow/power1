@@ -1,15 +1,22 @@
 package com.xiaomei.passportphoto.activity;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.xiaomei.passportphoto.R;
 
@@ -22,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Uri imageUri;
     private static final int CAM_REQUEST = 1313;
     private static final int PICK_REQUEST = 1212;
+    private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
+
     private Bitmap bitmapImage;
 
 
@@ -33,9 +42,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         control();
     }
 
-    private void init() {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        Log.d("permission", "onRequestPermissionsResult  requestCode" + requestCode);
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                    Toast.makeText(MainActivity.this, "run writeDatasToExternalStorage() method", Toast.LENGTH_SHORT).show();
+                    //   writeDatasToExternalStorage();
+
+                } else {
+                    // Permission Denied
+                    Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+        private void init() {
         btnNewImage = findViewById(R.id.btn_NewImage);
         btnOldImage = findViewById(R.id.btn_OldImage);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (this.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+                    this.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                Log.e("权限检测", "读或写文件权限未获取");
+                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+            }
+        }
     }
 
     private void control() {

@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.net.Uri;
+import android.os.Environment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +34,8 @@ import org.opencv.objdetect.CascadeClassifier;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
+
+import static java.lang.Math.min;
 
 public class RotationImageActivity extends AppCompatActivity implements View.OnClickListener {
     public static String TAG = "MainActivity";
@@ -62,8 +66,9 @@ public class RotationImageActivity extends AppCompatActivity implements View.OnC
     private CheckAutoEnableAsyncTask checkAutoEnableAsyncTask;
 
     public Bitmap imgBitmap, imgBitmapCpy;
-    public static String filename = "filename";
-
+    public static String filename = "";
+    public static String filename2 = "";
+    public static String filename0 = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +78,33 @@ public class RotationImageActivity extends AppCompatActivity implements View.OnC
         controls();
     }
 
+    public static Bitmap scaleImage(Bitmap bm, int newWidth, int newHeight)
+    {
+        if (bm == null)
+        {
+            return null;
+        }
+        int width = bm.getWidth();
+        int height = bm.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        float scale = (scaleHeight>scaleWidth)?scaleWidth:scaleHeight;
+        Matrix matrix = new Matrix();
+        matrix.postScale(scaleWidth, scaleHeight);
+        Bitmap newbm = Bitmap.createBitmap(bm, 0, 0, width, height, matrix,
+                true);
+        if (bm != null & !bm.isRecycled())
+        {
+            bm.recycle();
+            bm = null;
+        }
+        return newbm;
+    }
+
     private void init() {
+        filename = Environment.getExternalStorageDirectory().getAbsolutePath()+"/xiaomei/tmp";
+        filename2 = Environment.getExternalStorageDirectory().getAbsolutePath()+"/xiaomei/filename";
+        filename0 = Environment.getExternalStorageDirectory().getAbsolutePath()+"/xiaomei/0";
         tbRotationImage = findViewById(R.id.tb_RotationImage);
         imgPhoto = findViewById(R.id.img_RIPhoto);
         svRuler = findViewById(R.id.sv_Ruler);
@@ -99,13 +130,45 @@ public class RotationImageActivity extends AppCompatActivity implements View.OnC
         loadingActionbar();
         Intent iReceive = getIntent();
         Uri imageUri = Uri.parse(iReceive.getStringExtra("img"));
+
+        int desiredWidth = 320;
+        int desiredHeight = 480;
+
+
+
         try {
             InputStream inputStream = getContentResolver().openInputStream(imageUri);
             imgBitmap = BitmapFactory.decodeStream(inputStream);
+
+            ExifInterface ei = new ExifInterface(inputStream);
+            int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION,
+                    ExifInterface.ORIENTATION_NORMAL);
+            switch(orientation) {
+
+                case ExifInterface.ORIENTATION_ROTATE_90:
+                    imgBitmap = rotateBitmap(imgBitmap, 90);
+                    break;
+
+                case ExifInterface.ORIENTATION_ROTATE_180:
+                    imgBitmap = rotateBitmap(imgBitmap, 180);
+                    break;
+
+                case ExifInterface.ORIENTATION_ROTATE_270:
+                    imgBitmap = rotateBitmap(imgBitmap, 270);
+                    break;
+
+                case ExifInterface.ORIENTATION_NORMAL:
+                default:
+                    break;
+            }
+            imgBitmap = rotateBitmap(imgBitmap, 270);
+            imgBitmap = scaleImage(imgBitmap,desiredWidth,desiredHeight);
             imgBitmapCpy = imgBitmap.copy(imgBitmap.getConfig(), imgBitmap.isMutable());
             imgPhoto.setImageBitmap(imgBitmap);
             Log.d("uri", imageUri.toString());
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         checkAutoEnableAsyncTask = new CheckAutoEnableAsyncTask(this, btnAutoAdjustment);

@@ -82,7 +82,7 @@ public class CropImageActivity extends AppCompatActivity {
         bmImage = null;
         size = "3x4";
         try {
-            FileInputStream is = this.openFileInput(RotationImageActivity.filename);
+            FileInputStream is = new FileInputStream(RotationImageActivity.filename2);
             bmImage = BitmapFactory.decodeStream(is);
             is.close();
         } catch (Exception e) {
