@@ -1,12 +1,19 @@
 package com.xiaomei.passportphoto.activity;
 
+import android.annotation.SuppressLint;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +27,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.bumptech.glide.BitmapTypeRequest;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.Target;
 import com.xiaomei.passportphoto.R;
 import com.xiaomei.passportphoto.asynctask.CheckAutoEnableAsyncTask;
 import com.xiaomei.passportphoto.asynctask.MyAsyncTask;
@@ -33,7 +45,10 @@ import org.opencv.objdetect.CascadeClassifier;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
+import com.bumptech.glide.Glide;
 
 import static java.lang.Math.min;
 
@@ -69,7 +84,7 @@ public class RotationImageActivity extends AppCompatActivity implements View.OnC
     public static String filename = "";
     public static String filename2 = "";
     public static String filename0 = "";
-
+    private List<String> mlists = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,56 +146,67 @@ public class RotationImageActivity extends AppCompatActivity implements View.OnC
         Intent iReceive = getIntent();
         Uri imageUri = Uri.parse(iReceive.getStringExtra("img"));
 
-        int desiredWidth = 320;
-        int desiredHeight = 480;
-
-
-
         try {
-            InputStream inputStream = getContentResolver().openInputStream(imageUri);
-            imgBitmap = BitmapFactory.decodeStream(inputStream);
+            SimpleTarget target = new SimpleTarget<Bitmap>() {
 
-            ExifInterface ei = new ExifInterface(inputStream);
-            int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION,
-                    ExifInterface.ORIENTATION_NORMAL);
-            switch(orientation) {
+                @SuppressLint("NewApi")
+                @Override
+                public void onResourceReady(Bitmap loadedImage,
+                                            GlideAnimation<? super Bitmap> arg1) {
+                    int desiredWidth = 320;
+                    int desiredHeight = 480;
 
-                case ExifInterface.ORIENTATION_ROTATE_90:
-                    imgBitmap = rotateBitmap(imgBitmap, 90);
-                    break;
+                    MyAsyncTask.saveBitmap(loadedImage,RotationImageActivity.filename0);
+                    imgBitmap = scaleImage(loadedImage,desiredWidth,desiredHeight);
+                    imgBitmapCpy = imgBitmap.copy(imgBitmap.getConfig(), imgBitmap.isMutable());
 
-                case ExifInterface.ORIENTATION_ROTATE_180:
-                    imgBitmap = rotateBitmap(imgBitmap, 180);
-                    break;
+                    imgPhoto.setImageBitmap(imgBitmap);
+                    checkAutoEnableAsyncTask = new CheckAutoEnableAsyncTask(RotationImageActivity.this, btnAutoAdjustment);
+                    checkAutoEnableAsyncTask.execute(imgBitmap);
+                    try {
+                        point1 = checkAutoEnableAsyncTask.get()[0];
+                        point2 = checkAutoEnableAsyncTask.get()[1];
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+                }
 
-                case ExifInterface.ORIENTATION_ROTATE_270:
-                    imgBitmap = rotateBitmap(imgBitmap, 270);
-                    break;
+                @Override
+                public void onLoadFailed(Exception e, Drawable errorDrawable) {
+                    // TODO Auto-generated method stub
+                    super.onLoadFailed(e, errorDrawable);
+                }
 
-                case ExifInterface.ORIENTATION_NORMAL:
-                default:
-                    break;
-            }
-            imgBitmap = rotateBitmap(imgBitmap, 270);
-            imgBitmap = scaleImage(imgBitmap,desiredWidth,desiredHeight);
-            imgBitmapCpy = imgBitmap.copy(imgBitmap.getConfig(), imgBitmap.isMutable());
-            imgPhoto.setImageBitmap(imgBitmap);
+            };
+//            Target<GlideDrawable> target1 = Glide.with(this).load(imageUri).into(imgPhoto);
+//            target1.onResourceReady(new );
+            Glide.with(this).load(imageUri).asBitmap().into(target);
             Log.d("uri", imageUri.toString());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (Exception e){
             e.printStackTrace();
         }
-        checkAutoEnableAsyncTask = new CheckAutoEnableAsyncTask(this, btnAutoAdjustment);
-        checkAutoEnableAsyncTask.execute(imgBitmap);
-        try {
-            point1 = checkAutoEnableAsyncTask.get()[0];
-            point2 = checkAutoEnableAsyncTask.get()[1];
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
+
+    }
+
+    private static int getRotation(Context context, Uri selectedImage) {
+
+        int rotation = 0;
+        ContentResolver content = context.getContentResolver();
+
+        Cursor mediaCursor = content.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                new String[] { "orientation", "date_added" },
+                null, null, "date_added desc");
+
+        if (mediaCursor != null && mediaCursor.getCount() != 0) {
+            while(mediaCursor.moveToNext()){
+                rotation = mediaCursor.getInt(0);
+                break;
+            }
         }
+        mediaCursor.close();
+        return rotation;
     }
 
     private void loadingActionbar() {
