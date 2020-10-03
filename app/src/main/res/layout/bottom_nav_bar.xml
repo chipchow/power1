@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="56dp"
+    android:layout_height="64dp"
     card_view:cardUseCompatPadding="false"
     card_view:cardElevation="10dp"
     card_view:cardCornerRadius="3dp">
@@ -33,8 +33,8 @@
                 android:background="@color/colorNavAccentSelected" />
 
             <android.support.v7.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="6dp"
                 android:id="@+id/imageViewBar1"
                 android:tint="@color/colorNavAccentSelected"/>
@@ -42,7 +42,7 @@
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="HOME"
+                tools:text="证件照"
                 android:textSize="12sp"
                 android:id="@+id/textViewBar1"
                 android:textColor="@color/colorNavAccentSelected"/>
@@ -66,8 +66,8 @@
                 android:visibility="invisible"/>
 
             <android.support.v7.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="6dp"
                 android:id="@+id/imageViewBar2"
                 android:tint="@color/colorNavAccentUnselected"/>
@@ -75,7 +75,7 @@
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="SUPPORT"
+                tools:text="照相馆"
                 android:textSize="12sp"
                 android:id="@+id/textViewBar2"
                 android:textColor="@color/colorNavAccentUnselected"/>
@@ -89,6 +89,7 @@
             android:orientation="vertical"
             android:id="@+id/linearLayoutBar3"
             android:foreground="?android:attr/selectableItemBackground"
+            android:visibility="gone"
             android:gravity="center_horizontal">
 
             <View
@@ -108,7 +109,7 @@
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="BILLING"
+                tools:text="客服区"
                 android:textSize="12sp"
                 android:id="@+id/textViewBar3"
                 android:textColor="@color/colorNavAccentUnselected"/>
@@ -132,8 +133,8 @@
                 android:visibility="invisible"/>
 
             <android.support.v7.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="6dp"
                 android:id="@+id/imageViewBar4"
                 android:tint="@color/colorNavAccentUnselected"/>
@@ -141,7 +142,7 @@
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="PROFILE"
+                tools:text="我的"
                 android:textSize="12sp"
                 android:id="@+id/textViewBar4"
                 android:textColor="@color/colorNavAccentUnselected"/>

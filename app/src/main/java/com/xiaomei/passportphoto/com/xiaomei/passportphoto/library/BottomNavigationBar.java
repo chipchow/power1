@@ -1,4 +1,4 @@
-package me.riddhimanadib.library;
+package com.xiaomei.passportphoto.com.xiaomei.passportphoto.library;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
@@ -7,6 +7,8 @@ import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import com.xiaomei.passportphoto.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,6 +88,33 @@ public class BottomNavigationBar implements View.OnClickListener {
         this.mLLBar4.setOnClickListener(this);
     }
 
+    public void setMainTab(int menuType){
+        switch (menuType){
+            case 0:
+                this.mImageViewBar1.setImageDrawable(mNavigationPageList.get(0).getIcon_selected());
+                this.mImageViewBar2.setImageDrawable(mNavigationPageList.get(1).getIcon());
+                this.mImageViewBar3.setImageDrawable(mNavigationPageList.get(2).getIcon());
+                this.mImageViewBar4.setImageDrawable(mNavigationPageList.get(3).getIcon());
+                break;
+            case 1:
+                this.mImageViewBar1.setImageDrawable(mNavigationPageList.get(0).getIcon());
+                this.mImageViewBar2.setImageDrawable(mNavigationPageList.get(1).getIcon_selected());
+                this.mImageViewBar3.setImageDrawable(mNavigationPageList.get(2).getIcon());
+                this.mImageViewBar4.setImageDrawable(mNavigationPageList.get(3).getIcon());
+                break;
+            case 2:
+                break;
+            case 3:
+                this.mImageViewBar1.setImageDrawable(mNavigationPageList.get(0).getIcon());
+                this.mImageViewBar2.setImageDrawable(mNavigationPageList.get(1).getIcon());
+                this.mImageViewBar3.setImageDrawable(mNavigationPageList.get(2).getIcon());
+                this.mImageViewBar4.setImageDrawable(mNavigationPageList.get(3).getIcon_selected());
+                break;
+            default:
+                break;
+        }
+
+    }
     @Override
     public void onClick(View view) {
 

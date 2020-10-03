@@ -1,9 +1,11 @@
-package me.riddhimanadib.library;
+package com.xiaomei.passportphoto.com.xiaomei.passportphoto.library;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+
+import com.xiaomei.passportphoto.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +48,7 @@ public class BottomBarHolderActivity extends AppCompatActivity implements Bottom
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frameLayout, mNavigationPageList.get(0).getFragment());
         fragmentTransaction.commit();
+        mBottomNav.setMainTab(0);
     }
 
     /**
@@ -57,20 +60,7 @@ public class BottomBarHolderActivity extends AppCompatActivity implements Bottom
 
         // finding the selected fragment
         Fragment fragment = null;
-        switch (menuType) {
-            case BottomNavigationBar.MENU_BAR_1:
-                fragment = mNavigationPageList.get(0).getFragment();
-                break;
-            case BottomNavigationBar.MENU_BAR_2:
-                fragment = mNavigationPageList.get(1).getFragment();
-                break;
-            case BottomNavigationBar.MENU_BAR_3:
-                fragment = mNavigationPageList.get(2).getFragment();
-                break;
-            case BottomNavigationBar.MENU_BAR_4:
-                fragment = mNavigationPageList.get(3).getFragment();
-                break;
-        }
+        fragment = mNavigationPageList.get(menuType).getFragment();
 
         // replacing fragment with the current one
         if (fragment != null) {
@@ -78,6 +68,7 @@ public class BottomBarHolderActivity extends AppCompatActivity implements Bottom
             fragmentTransaction.replace(R.id.frameLayout, fragment);
             fragmentTransaction.commit();
         }
+        mBottomNav.setMainTab(menuType);
 
     }
 }

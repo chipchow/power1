@@ -6,11 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -27,14 +24,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import com.bumptech.glide.BitmapTypeRequest;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.target.Target;
 import com.xiaomei.passportphoto.R;
 import com.xiaomei.passportphoto.asynctask.CheckAutoEnableAsyncTask;
-import com.xiaomei.passportphoto.asynctask.MyAsyncTask;
+import com.xiaomei.passportphoto.utils.BitmapUtils;
 import com.xiaomei.passportphoto.utils.MyConstant;
 import com.tistory.dwfox.dwrulerviewlibrary.utils.DWUtils;
 import com.tistory.dwfox.dwrulerviewlibrary.view.ObservableHorizontalScrollView;
@@ -43,8 +37,6 @@ import com.tistory.dwfox.dwrulerviewlibrary.view.ScrollingValuePicker;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.objdetect.CascadeClassifier;
 
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -81,9 +73,6 @@ public class RotationImageActivity extends AppCompatActivity implements View.OnC
     private CheckAutoEnableAsyncTask checkAutoEnableAsyncTask;
 
     public Bitmap imgBitmap, imgBitmapCpy;
-    public static String filename = "";
-    public static String filename2 = "";
-    public static String filename0 = "";
     private List<String> mlists = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,33 +82,9 @@ public class RotationImageActivity extends AppCompatActivity implements View.OnC
         controls();
     }
 
-    public static Bitmap scaleImage(Bitmap bm, int newWidth, int newHeight)
-    {
-        if (bm == null)
-        {
-            return null;
-        }
-        int width = bm.getWidth();
-        int height = bm.getHeight();
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeight) / height;
-        float scale = (scaleHeight>scaleWidth)?scaleWidth:scaleHeight;
-        Matrix matrix = new Matrix();
-        matrix.postScale(scaleWidth, scaleHeight);
-        Bitmap newbm = Bitmap.createBitmap(bm, 0, 0, width, height, matrix,
-                true);
-        if (bm != null & !bm.isRecycled())
-        {
-            bm.recycle();
-            bm = null;
-        }
-        return newbm;
-    }
+
 
     private void init() {
-        filename = Environment.getExternalStorageDirectory().getAbsolutePath()+"/xiaomei/tmp";
-        filename2 = Environment.getExternalStorageDirectory().getAbsolutePath()+"/xiaomei/filename";
-        filename0 = Environment.getExternalStorageDirectory().getAbsolutePath()+"/xiaomei/0";
         tbRotationImage = findViewById(R.id.tb_RotationImage);
         imgPhoto = findViewById(R.id.img_RIPhoto);
         svRuler = findViewById(R.id.sv_Ruler);
@@ -156,8 +121,8 @@ public class RotationImageActivity extends AppCompatActivity implements View.OnC
                     int desiredWidth = 320;
                     int desiredHeight = 480;
 
-                    MyAsyncTask.saveBitmap(loadedImage,RotationImageActivity.filename0);
-                    imgBitmap = scaleImage(loadedImage,desiredWidth,desiredHeight);
+                    BitmapUtils.saveBitmap(loadedImage,BitmapUtils.filename0);
+                    imgBitmap = BitmapUtils.scaleImage(loadedImage,desiredWidth,desiredHeight);
                     imgBitmapCpy = imgBitmap.copy(imgBitmap.getConfig(), imgBitmap.isMutable());
 
                     imgPhoto.setImageBitmap(imgBitmap);
@@ -262,10 +227,6 @@ public class RotationImageActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.mn_Check) {
-            MyAsyncTask myAsyncTask = new MyAsyncTask(this);
-            myAsyncTask.execute(imgBitmapCpy);
-        }
         return true;
     }
 

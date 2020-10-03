@@ -1,146 +1,287 @@
 package com.xiaomei.passportphoto.activity;
 
-import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
+import android.widget.ImageView;
 
+import com.baidu.aip.bodyanalysis.AipBodyAnalysis;
+import com.baidu.aip.util.Base64Util;
+import com.baidu.aip.util.Util;
 import com.xiaomei.passportphoto.R;
+import com.xiaomei.passportphoto.asynctask.SaveImageAsyncTask;
+import com.xiaomei.passportphoto.logic.PhotoController;
+import com.xiaomei.passportphoto.model.Photo;
+import com.xiaomei.passportphoto.model.RunContext;
+import com.xiaomei.passportphoto.model.User;
+import com.xiaomei.passportphoto.utils.BitmapUtils;
+import com.xiaomei.passportphoto.utils.MyConstant;
 
-import java.io.ByteArrayOutputStream;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Base64;
+import java.util.Date;
+import java.util.HashMap;
 
-public class PhotoSelectActivity extends AppCompatActivity implements View.OnClickListener {
+public class ChangeBGActivity extends AppCompatActivity implements View.OnClickListener {
+    private Handler mHandle = new Handler();
 
-    private Button btnNewImage, btnOldImage;
-    private Uri imageUri;
-    private static final int CAM_REQUEST = 1313;
-    private static final int PICK_REQUEST = 1212;
+    private ProgressDialog dialog;
 
-    private Bitmap bitmapImage;
+    private Button btn_save, btn_print;
+    private ImageButton btn_red, btn_blue, btn_white;
+    private ImageView imgPhoto;
+    private Bitmap bitmapImage,currentBitmap;
+    private int redBg = Color.RED;
+    private int blueBg = Color.BLUE;
+    private int whiteBg = Color.WHITE;
 
+    int paperWidth = 98;
+    int paperHeight = 152;
+    int gap = 5;
+    private int max, quantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_photo_select);
+        setContentView(R.layout.layout_change_background);
         init();
         control();
+        bitmapImage = PhotoSelectActivity.bitmapImage;
+        imgPhoto.setImageBitmap(bitmapImage);
+
+        Photo p = new Photo();
+
+        BitmapUtils.saveBitmap(bitmapImage, BitmapUtils.filename);
+        byte[] file = BitmapUtils.readFileToByteArray(BitmapUtils.filename);
+        p.mPhotoOrigin = Util.uriEncode(Base64Util.encode(file),true);
+        RunContext.getInstance().mUser.mCurrent = p;
+
+        PhotoController.getInstance().sendMattingRequest(p, mHandle, new Runnable() {
+            @Override
+            public void run() {
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+                byte[] fg = RunContext.getInstance().mUser.mCurrent.mPhotoMat;
+                BitmapUtils.saveByteArray(fg, BitmapUtils.filename2);
+                bitmapImage = BitmapUtils.decodeBitmapFromByteArray(fg);
+                imgPhoto.setImageBitmap(bitmapImage);
+                currentBitmap = bitmapImage;
+            }
+        });
+        dialog = new ProgressDialog(this);
+        dialog.setMessage("处理中，请稍候.");
+        dialog.setCancelable(false);
+        dialog.show();
+//        MattingTask task = new MattingTask(this);
+//        task.execute(bitmapImage);
     }
 
 
     private void init() {
-        btnNewImage = findViewById(R.id.button_camera);
-        btnOldImage = findViewById(R.id.button_album);
-
+        btn_save = findViewById(R.id.button_save);
+        btn_print = findViewById(R.id.button_print);
+        btn_red = findViewById(R.id.imageButton_red);
+        btn_blue = findViewById(R.id.imageButton_blue);
+        btn_white = findViewById(R.id.imageButton_white);
+        imgPhoto = findViewById(R.id.imageView_photo);
     }
 
     private void control() {
-        btnNewImage.setOnClickListener(this);
-        btnOldImage.setOnClickListener(this);
-
+        btn_save.setOnClickListener(this);
+        btn_print.setOnClickListener(this);
+        btn_red.setOnClickListener(this);
+        btn_blue.setOnClickListener(this);
+        btn_white.setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_NewImage:
-                captureNewImage();
+            case R.id.button_save:
+                saveBitmap();
                 break;
-            case R.id.btn_OldImage:
-                selectImageFromGallery();
+            case R.id.button_print:
+                printBitmap();
                 break;
+            case R.id.imageButton_red:
+                currentBitmap = BitmapUtils.changeBackground(bitmapImage, redBg);
+                imgPhoto.setImageBitmap(currentBitmap);
+                break;
+            case R.id.imageButton_blue:
+                currentBitmap = BitmapUtils.changeBackground(bitmapImage, blueBg);
+                imgPhoto.setImageBitmap(currentBitmap);
+                break;
+            case R.id.imageButton_white:
+                currentBitmap = BitmapUtils.changeBackground(bitmapImage, whiteBg);
+                imgPhoto.setImageBitmap(currentBitmap);
+                break;
+            default:break;
         }
     }
 
+    private void saveBitmap(){
+        File filepath = Environment.getExternalStorageDirectory();
+        File myDir = new File(filepath.getAbsolutePath() + "/MyPhoto_Id/");
+        if (!myDir.exists()) {
+            myDir.mkdirs();
+        }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddhhmmss");
+        String date = simpleDateFormat.format(new Date());
+        String fname = "Image-" + date + ".jpg";
+        File file = new File(myDir, fname);
+        if (file.exists())
+            file.delete();
 
-    private void captureNewImage() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, CAM_REQUEST);
+        SaveImageAsyncTask asyncTask = new SaveImageAsyncTask(this, file);
+        asyncTask.execute(currentBitmap);
+    }
 
-//        Intent pictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        if (pictureIntent.resolveActivity(getPackageManager()) != null) {
-//            File photoFile = null;
-//            try {
-//                photoFile = createImageFile();
-//            } catch (IOException e) {
-//                e.printStackTrace();
+    private void printBitmap(){
+        quantity = max = calculateMaxQuantity(currentBitmap, paperWidth, paperHeight, gap);
+        Bitmap bitmapOut = drawImages(currentBitmap, paperWidth, paperHeight, quantity, max, gap);
+        imgPhoto.setImageBitmap(bitmapOut);
+
+        File filepath = Environment.getExternalStorageDirectory();
+        File myDir = new File(filepath.getAbsolutePath() + "/MyPhoto_Id/");
+        if (!myDir.exists()) {
+            myDir.mkdirs();
+        }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddhhmmss");
+        String date = simpleDateFormat.format(new Date());
+        String fname = "Image-" + date + ".jpg";
+        File file = new File(myDir, fname);
+        if (file.exists())
+            file.delete();
+        SaveImageAsyncTask asyncTask = new SaveImageAsyncTask(this, file);
+        asyncTask.execute(bitmapOut);
+    }
+
+    private int calculateMaxQuantity(Bitmap src, int paperWidth, int paperHeight, int gap) {
+//        int x, y, max;
+        int row, col;
+        row = col = 0;
+        paperWidth = MyConstant.mmToPx(paperWidth);
+        paperHeight = MyConstant.mmToPx(paperHeight);
+//        x = 0 + gap;
+//        y = 0 + gap;
+//        max = 0;
+//        do {
+//            max = max + 1;
+//            x = x + src.getWidth() + gap;
+//            if (x >= paperWidth - gap - src.getWidth()) {
+//                x = 0 + gap;
+//                y = y + src.getHeight() + gap;
 //            }
-//            if (photoFile != null){
-//                Uri photoURI = FileProvider.getUriForFile(this,"com.example.android.provider",photoFile);
-//
-//            }
-//            startActivityForResult(pictureIntent, CAM_REQUEST);
 //        }
-
+//        while (x <= paperWidth - src.getWidth() - gap && y <= paperHeight - src.getHeight() - gap);
+        col = Math.round(paperWidth / (src.getWidth() + gap));
+        row = Math.round(paperHeight / (src.getHeight() + gap));
+        return col * row;
     }
 
-    private void selectImageFromGallery() {
-        Intent iToGallery = new Intent(Intent.ACTION_PICK);
-        File fileInput = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-        String stringFile = fileInput.getPath();
-        Uri data = Uri.parse(stringFile);
-        iToGallery.setDataAndType(data, "image/*");
-        startActivityForResult(iToGallery, PICK_REQUEST);
+    private Bitmap drawImages(Bitmap src, int paperWidth, int paperHeight, int quantity, int max, int gap) {
+        int x, y;
+        paperWidth = MyConstant.mmToPx(paperWidth);
+        paperHeight = MyConstant.mmToPx(paperHeight);
+        x = 0 + gap;
+        y = 0 + gap;
+        Bitmap result = Bitmap.createBitmap(paperWidth, paperHeight, src.getConfig());
+        Canvas canvas = new Canvas(result);
+        canvas.drawColor(Color.WHITE);
+        for (int i = 0; i < quantity; i++) {
+            canvas.drawBitmap(src, x, y, null);
+            x = x + src.getWidth() + gap;
+            if (x > paperWidth - src.getWidth()) {
+                x = 0 + gap;
+                y = y + src.getHeight() + gap;
+            }
+        }
+//        do {
+//            canvas.drawBitmap(src, x, y, null);
+//            x = x + src.getWidth() + gap;
+//            if (x >= paperWidth - gap - src.getWidth()) {
+//                x = 0 + gap;
+//                y = y + src.getHeight() + gap;
+//            }
+//        }
+//        while (x <= paperWidth - src.getWidth() - gap && y <= paperHeight - src.getHeight() - gap);
 
+        return result;
     }
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Intent iToRotationImage = new Intent(PhotoSelectActivity.this, RotationImageActivity.class);
-        if (resultCode == RESULT_OK && requestCode == CAM_REQUEST) {
-//            bitmapImage = (Bitmap) data.getExtras().get("data");
-//
-//            imageUri = getImageUri(getApplicationContext(), bitmapImage);
-//            iToRotationImage.putExtra("img", imageUri.toString());
-//            startActivity(iToRotationImage);
+    public class MattingTask extends AsyncTask<Bitmap, Void, Void> {
+        private ProgressDialog dialog;
 
+        public MattingTask(Context activity) {
+            dialog = new ProgressDialog(activity);
+        }
 
-        } else if (resultCode == RESULT_OK && requestCode == PICK_REQUEST) {
-            imageUri = data.getData();
-            iToRotationImage.putExtra("img", imageUri.toString());
-            startActivity(iToRotationImage);
+        public void bodyseg(AipBodyAnalysis client, String filename) {
+            // 传入可选参数调用接口
+            HashMap<String, String> options = new HashMap<String, String>();
+            options.put("type", "foreground");
+            // 参数为二进制数组
+            try {
+                byte[] file = BitmapUtils.readFileToByteArray(filename);
+                JSONObject res = client.bodySeg(file, options);
+                String fg = (String) res.get("foreground");
+                System.out.println(res.toString(2));
+                byte[] bytes = android.util.Base64.decode(fg,android.util.Base64.DEFAULT);
+                BitmapUtils.saveByteArray(bytes, BitmapUtils.filename2);
+                bitmapImage = BitmapUtils.decodeBitmapFromByteArray(bytes);
+                imgPhoto.setImageBitmap(bitmapImage);
+                currentBitmap = bitmapImage;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        @Override
+        protected void onPreExecute() {
+            dialog.setMessage("处理中，请稍候.");
+            dialog.setCancelable(false);
+            dialog.show();
+        }
+        @Override
+        protected Void doInBackground(Bitmap... bitmaps) {
+            try {
+                BitmapUtils.saveBitmap(bitmaps[0], BitmapUtils.filename);
+//            bitmaps[0].recycle();
+                AipBodyAnalysis client = BitmapUtils.getipBodyAnalysisInstance();
+                bodyseg(client, BitmapUtils.filename);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
+
         }
     }
 
-    private Uri getImageUri(Context context, Bitmap inImage) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        inImage.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-        String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), inImage, "Title", null);
-        return Uri.parse(path);
-    }
-
-
-//    private File createImageFile() throws IOException {
-//        String timeStamp =
-//                new SimpleDateFormat("yyyyMMdd_HHmmss",
-//                        Locale.getDefault()).format(new Date());
-//        String imageFileName = "IMG_" + timeStamp + "_";
-//        File storageDir =
-//                getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-//        File image = File.createTempFile(
-//                imageFileName,  /* prefix */
-//                ".jpg",         /* suffix */
-//                storageDir      /* directory */
-//        );
-//
-//        imageFilePath = image.getAbsolutePath();
-//        return image;
-//    }
 }

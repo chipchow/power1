@@ -23,6 +23,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.xiaomei.passportphoto.R;
+import com.xiaomei.passportphoto.utils.BitmapUtils;
 import com.xiaomei.passportphoto.utils.CustomView;
 import com.xiaomei.passportphoto.utils.MyConstant;
 
@@ -82,7 +83,7 @@ public class CropImageActivity extends AppCompatActivity {
         bmImage = null;
         size = "3x4";
         try {
-            FileInputStream is = new FileInputStream(RotationImageActivity.filename2);
+            FileInputStream is = new FileInputStream(BitmapUtils.filename2);
             bmImage = BitmapFactory.decodeStream(is);
             is.close();
         } catch (Exception e) {
