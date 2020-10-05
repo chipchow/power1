@@ -110,7 +110,7 @@ public class BitmapUtils {
             }
 
             FileOutputStream fos = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 80,fos);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100,fos);
             fos.close();
         }catch (Exception e){
             e.printStackTrace();
@@ -214,25 +214,34 @@ public class BitmapUtils {
         return imagepath;
     }
 
-    public static void setPictureDegreeZero(String path) {
-        try {
-            ExifInterface exifInterface = new ExifInterface(path);
-            // 修正图片的旋转角度，设置其不旋转。这里也可以设置其旋转的角度，可以传值过去，
-            // 例如旋转90度，传值ExifInterface.ORIENTATION_ROTATE_90，需要将这个值转换为String类型的
-            exifInterface.setAttribute(ExifInterface.TAG_ORIENTATION, "no");
-            exifInterface.saveAttributes();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    public static Bitmap horverImage(Bitmap bitmap, boolean H, boolean V) {
+        int bmpWidth = bitmap.getWidth();
+        int bmpHeight = bitmap.getHeight();
+        Matrix matrix = new Matrix();
 
+        if (H)
+            matrix.postScale(-1, 1);   //水平翻转H
+
+        if (V)
+            matrix.postScale(1, -1);   //垂直翻转V
+
+        if (H && V)
+            matrix.postScale(-1, -1);   //水平&垂直翻转HV
+
+        return Bitmap.createBitmap(bitmap, 0, 0, bmpWidth, bmpHeight, matrix, true);
+
+        //matrix.postRotate(-90);  //旋转-90度
     }
+
     public static String getPictureNameByDate(){
         Date date = new Date(System.currentTimeMillis());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
         return simpleDateFormat.format(date);
     }
 
+    public static String getTmpPath(Context context){
+        return context.getFilesDir() + File.separator + "tmp";
+    }
     private static final char[] hexCode = "0123456789ABCDEF".toCharArray();
 
     public static String md5(String input) {

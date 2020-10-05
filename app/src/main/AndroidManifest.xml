@@ -38,7 +38,8 @@
 
         <activity android:name=".activity.SaveImageActivity" />
         <activity android:name=".activity.PhotoSelectActivity" />
-        <activity android:name=".activity.ChangeBGActivity" />
+        <activity android:name=".activity.ChangeBGActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".activity.ChangeBackgroundActivity"></activity>
     </application>
 

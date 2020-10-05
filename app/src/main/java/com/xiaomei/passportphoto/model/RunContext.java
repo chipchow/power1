@@ -2,6 +2,7 @@ package com.xiaomei.passportphoto.model;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Build;
 
 import com.xiaomei.passportphoto.utils.BitmapUtils;
@@ -13,7 +14,8 @@ public class RunContext {
     public User mUser;
     public String mSession;
     public long mUpdateSessionTime;
-
+    public Bitmap mBitmap;
+    public PhotoSpec mSpec;
     private static RunContext mInstance = null;
     public RunContext(){
         mModel = Build.MODEL;

@@ -23,6 +23,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.xiaomei.passportphoto.R;
+import com.xiaomei.passportphoto.model.RunContext;
 import com.xiaomei.passportphoto.utils.BitmapUtils;
 import com.xiaomei.passportphoto.utils.CustomView;
 import com.xiaomei.passportphoto.utils.MyConstant;
@@ -75,7 +76,6 @@ public class CropImageActivity extends AppCompatActivity {
         btnSelectSize = findViewById(R.id.btn_SelectImageSize);
         cvPhoto = findViewById(R.id.cv_CIPhoto);
         mat = new Mat();
-        mCascadeClassifier = MyConstant.Cascade_Setting_Eye(this);
 //        imgTest = findViewById(R.id.img_Test);
         setSupportActionBar(tbCropImage);
         setTitle("选择大小");
@@ -83,9 +83,7 @@ public class CropImageActivity extends AppCompatActivity {
         bmImage = null;
         size = "3x4";
         try {
-            FileInputStream is = new FileInputStream(BitmapUtils.filename2);
-            bmImage = BitmapFactory.decodeStream(is);
-            is.close();
+            bmImage = RunContext.getInstance().mBitmap;
         } catch (Exception e) {
             e.printStackTrace();
         }

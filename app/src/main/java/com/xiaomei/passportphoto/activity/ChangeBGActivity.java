@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.support.constraint.ConstraintLayout;
+import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +31,7 @@ import com.xiaomei.passportphoto.model.RunContext;
 import com.xiaomei.passportphoto.model.User;
 import com.xiaomei.passportphoto.utils.BitmapUtils;
 import com.xiaomei.passportphoto.utils.MyConstant;
+import com.xiaomei.passportphoto.utils.PhotoView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,13 +48,10 @@ public class ChangeBGActivity extends AppCompatActivity implements View.OnClickL
 
     private ProgressDialog dialog;
 
-    private Button btn_save, btn_print;
-    private ImageButton btn_red, btn_blue, btn_white;
-    private ImageView imgPhoto;
-    private Bitmap bitmapImage,currentBitmap;
-    private int redBg = Color.RED;
-    private int blueBg = Color.BLUE;
-    private int whiteBg = Color.WHITE;
+    private Button btn_single, btn_6inch,btn_save;
+    private Button btn_red, btn_blue, btn_white,btn_confirm;
+    private PhotoView imgPhoto;
+    private ConstraintLayout mLayout_selectbg,mLayout_save,mLayout_image;
 
     int paperWidth = 98;
     int paperHeight = 152;
@@ -61,16 +61,15 @@ public class ChangeBGActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_change_background);
+        setContentView(R.layout.layout_changebg);
         init();
         control();
-        bitmapImage = PhotoSelectActivity.bitmapImage;
-        imgPhoto.setImageBitmap(bitmapImage);
+        String imagePath = getIntent().getStringExtra("filepath");
+        imgPhoto.setImageBitmap(RunContext.getInstance().mBitmap,false, false);
 
         Photo p = new Photo();
 
-        BitmapUtils.saveBitmap(bitmapImage, BitmapUtils.filename);
-        byte[] file = BitmapUtils.readFileToByteArray(BitmapUtils.filename);
+        byte[] file = BitmapUtils.readFileToByteArray(imagePath);
         p.mPhotoOrigin = Util.uriEncode(Base64Util.encode(file),true);
         RunContext.getInstance().mUser.mCurrent = p;
 
@@ -82,35 +81,53 @@ public class ChangeBGActivity extends AppCompatActivity implements View.OnClickL
                 }
                 byte[] fg = RunContext.getInstance().mUser.mCurrent.mPhotoMat;
                 BitmapUtils.saveByteArray(fg, BitmapUtils.filename2);
-                bitmapImage = BitmapUtils.decodeBitmapFromByteArray(fg);
-                imgPhoto.setImageBitmap(bitmapImage);
-                currentBitmap = bitmapImage;
+                Bitmap bitmap = BitmapUtils.decodeBitmapFromByteArray(fg);
+                imgPhoto.setImageBitmap(bitmap,true,true);
+                btn_white.setSelected(true);
+                imgPhoto.setBackColor(ChangeBGActivity.this.getResources().getColor(R.color.photobackwhite));
             }
         });
         dialog = new ProgressDialog(this);
         dialog.setMessage("处理中，请稍候.");
         dialog.setCancelable(false);
         dialog.show();
-//        MattingTask task = new MattingTask(this);
-//        task.execute(bitmapImage);
     }
 
 
     private void init() {
         btn_save = findViewById(R.id.button_save);
-        btn_print = findViewById(R.id.button_print);
+        btn_6inch = findViewById(R.id.button_6inch);
+        btn_single = findViewById(R.id.button_single);
         btn_red = findViewById(R.id.imageButton_red);
         btn_blue = findViewById(R.id.imageButton_blue);
         btn_white = findViewById(R.id.imageButton_white);
-        imgPhoto = findViewById(R.id.imageView_photo);
+        btn_confirm = findViewById(R.id.imageView_confirm);
+
+        mLayout_save = findViewById(R.id.constraint_save);
+        mLayout_selectbg = findViewById(R.id.constraint_selectbg);
+        btn_red.setSelected(false);
+        btn_white.setSelected(true);
+        btn_blue.setSelected(false);
+
+        mLayout_image = findViewById(R.id.constraintLayout_image);
+        ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(this);
+        lp.leftToLeft = ConstraintSet.PARENT_ID;
+        lp.rightToRight = ConstraintSet.PARENT_ID;
+        lp.topToTop = ConstraintSet.PARENT_ID;
+        
+        imgPhoto = new PhotoView(this);
+        imgPhoto.setLayoutParams(lp);
     }
 
     private void control() {
         btn_save.setOnClickListener(this);
-        btn_print.setOnClickListener(this);
+        btn_single.setOnClickListener(this);
+        btn_6inch.setOnClickListener(this);
+
         btn_red.setOnClickListener(this);
         btn_blue.setOnClickListener(this);
         btn_white.setOnClickListener(this);
+        btn_confirm.setOnClickListener(this);
     }
 
 
@@ -118,62 +135,47 @@ public class ChangeBGActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_save:
-                saveBitmap();
+                Intent intent = new Intent(this,CropImageActivity.class);
+                startActivity(intent);
+                //saveBitmap();
                 break;
-            case R.id.button_print:
-                printBitmap();
+            case R.id.button_6inch:
+                //printBitmap();
+                break;
+            case R.id.button_single:
+                break;
+            case R.id.imageView_confirm:
+                mLayout_selectbg.setVisibility(View.INVISIBLE);
+                mLayout_save.setVisibility(View.VISIBLE);
+                Bitmap bitmap = imgPhoto.getBitmap();
+                imgPhoto.setImageBitmap(bitmap,false,false);
                 break;
             case R.id.imageButton_red:
-                currentBitmap = BitmapUtils.changeBackground(bitmapImage, redBg);
-                imgPhoto.setImageBitmap(currentBitmap);
+                btn_blue.setSelected(false);
+                btn_white.setSelected(false);
+                btn_red.setSelected(true);
+                imgPhoto.setBackColor(this.getResources().getColor(R.color.photobackred));
                 break;
             case R.id.imageButton_blue:
-                currentBitmap = BitmapUtils.changeBackground(bitmapImage, blueBg);
-                imgPhoto.setImageBitmap(currentBitmap);
+                btn_blue.setSelected(true);
+                btn_white.setSelected(false);
+                btn_red.setSelected(false);
+                imgPhoto.setBackColor(this.getResources().getColor(R.color.photobackblue));
                 break;
             case R.id.imageButton_white:
-                currentBitmap = BitmapUtils.changeBackground(bitmapImage, whiteBg);
-                imgPhoto.setImageBitmap(currentBitmap);
+                btn_blue.setSelected(false);
+                btn_white.setSelected(true);
+                btn_red.setSelected(false);
+                imgPhoto.setBackColor(this.getResources().getColor(R.color.photobackwhite));
                 break;
             default:break;
         }
     }
 
     private void saveBitmap(){
-        File filepath = Environment.getExternalStorageDirectory();
-        File myDir = new File(filepath.getAbsolutePath() + "/MyPhoto_Id/");
-        if (!myDir.exists()) {
-            myDir.mkdirs();
-        }
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddhhmmss");
-        String date = simpleDateFormat.format(new Date());
-        String fname = "Image-" + date + ".jpg";
-        File file = new File(myDir, fname);
-        if (file.exists())
-            file.delete();
-
-        SaveImageAsyncTask asyncTask = new SaveImageAsyncTask(this, file);
-        asyncTask.execute(currentBitmap);
     }
 
     private void printBitmap(){
-        quantity = max = calculateMaxQuantity(currentBitmap, paperWidth, paperHeight, gap);
-        Bitmap bitmapOut = drawImages(currentBitmap, paperWidth, paperHeight, quantity, max, gap);
-        imgPhoto.setImageBitmap(bitmapOut);
-
-        File filepath = Environment.getExternalStorageDirectory();
-        File myDir = new File(filepath.getAbsolutePath() + "/MyPhoto_Id/");
-        if (!myDir.exists()) {
-            myDir.mkdirs();
-        }
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddhhmmss");
-        String date = simpleDateFormat.format(new Date());
-        String fname = "Image-" + date + ".jpg";
-        File file = new File(myDir, fname);
-        if (file.exists())
-            file.delete();
-        SaveImageAsyncTask asyncTask = new SaveImageAsyncTask(this, file);
-        asyncTask.execute(bitmapOut);
     }
 
     private int calculateMaxQuantity(Bitmap src, int paperWidth, int paperHeight, int gap) {
@@ -230,58 +232,6 @@ public class ChangeBGActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
-    public class MattingTask extends AsyncTask<Bitmap, Void, Void> {
-        private ProgressDialog dialog;
 
-        public MattingTask(Context activity) {
-            dialog = new ProgressDialog(activity);
-        }
-
-        public void bodyseg(AipBodyAnalysis client, String filename) {
-            // 传入可选参数调用接口
-            HashMap<String, String> options = new HashMap<String, String>();
-            options.put("type", "foreground");
-            // 参数为二进制数组
-            try {
-                byte[] file = BitmapUtils.readFileToByteArray(filename);
-                JSONObject res = client.bodySeg(file, options);
-                String fg = (String) res.get("foreground");
-                System.out.println(res.toString(2));
-                byte[] bytes = android.util.Base64.decode(fg,android.util.Base64.DEFAULT);
-                BitmapUtils.saveByteArray(bytes, BitmapUtils.filename2);
-                bitmapImage = BitmapUtils.decodeBitmapFromByteArray(bytes);
-                imgPhoto.setImageBitmap(bitmapImage);
-                currentBitmap = bitmapImage;
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        @Override
-        protected void onPreExecute() {
-            dialog.setMessage("处理中，请稍候.");
-            dialog.setCancelable(false);
-            dialog.show();
-        }
-        @Override
-        protected Void doInBackground(Bitmap... bitmaps) {
-            try {
-                BitmapUtils.saveBitmap(bitmaps[0], BitmapUtils.filename);
-//            bitmaps[0].recycle();
-                AipBodyAnalysis client = BitmapUtils.getipBodyAnalysisInstance();
-                bodyseg(client, BitmapUtils.filename);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            if (dialog.isShowing()) {
-                dialog.dismiss();
-            }
-
-        }
-    }
 
 }

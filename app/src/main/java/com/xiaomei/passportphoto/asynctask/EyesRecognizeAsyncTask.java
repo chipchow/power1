@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.xiaomei.passportphoto.activity.CropImageActivity;
+import com.xiaomei.passportphoto.logic.PhotoApp;
 
 import org.opencv.android.Utils;
 import org.opencv.core.Mat;
@@ -40,30 +41,22 @@ public class EyesRecognizeAsyncTask extends AsyncTask<Bitmap, Void, org.opencv.c
         MatOfRect eyes = new MatOfRect();
         Utils.bitmapToMat(bitmaps[0], myImageMat);
         Imgproc.cvtColor(myImageMat, myImageMat, Imgproc.COLOR_RGBA2GRAY);
-//        Imgproc.resize(myImageMat, myImageMat, new Size(bitmaps[0].getWidth() / 5, bitmaps[0].getHeight() / 5));
-        CropImageActivity.mCascadeClassifier.detectMultiScale(myImageMat, eyes, 1.1, 15, 10, new Size(5, 5), new Size());
+        PhotoApp.mCascadeClassifier.detectMultiScale(myImageMat, eyes, 1.1, 15, 10, new Size(5, 5), new Size());
         org.opencv.core.Rect[] eyesArray = eyes.toArray();
 
         if (eyesArray.length == 2) {
             Log.d("Today", "eyes.length = 2");
-            points[0] = new Point((eyesArray[0].tl().x + eyesArray[0].br().x) / 2, (eyesArray[0].tl().y + eyesArray[0].br().y)/ 2);
-            points[1] = new Point((eyesArray[1].tl().x + eyesArray[1].br().x) / 2, (eyesArray[1].tl().y + eyesArray[1].br().y)/ 2);
-
+            if(eyesArray[0].tl().x < eyesArray[1].tl().x) {
+                points[0] = new Point((eyesArray[0].tl().x + eyesArray[0].br().x) / 2, (eyesArray[0].tl().y + eyesArray[0].br().y) / 2);
+                points[1] = new Point((eyesArray[1].tl().x + eyesArray[1].br().x) / 2, (eyesArray[1].tl().y + eyesArray[1].br().y) / 2);
+            }else{
+                points[1] = new Point((eyesArray[0].tl().x + eyesArray[0].br().x) / 2, (eyesArray[0].tl().y + eyesArray[0].br().y) / 2);
+                points[0] = new Point((eyesArray[1].tl().x + eyesArray[1].br().x) / 2, (eyesArray[1].tl().y + eyesArray[1].br().y) / 2);
+            }
         } else {
-
-            Log.d("Today", "eye != 2");
-            Log.d("Today", "eye length = " + String.valueOf(eyesArray.length));
-            Point tl, br;
-//            if (bitmaps[0].getWidth() <= bitmaps[0].getHeight()) {
-
-                points[0] = new org.opencv.core.Point(bitmaps[0].getWidth() * 47.5/100, bitmaps[0].getHeight() /2);
-                points[1] = new org.opencv.core.Point(bitmaps[0].getWidth() * 52.5/100, bitmaps[0].getHeight() /2);
-//            }
+            points[0] = new org.opencv.core.Point(-1,-1);
+            points[1] = new org.opencv.core.Point(-1, -1);
         }
-        Log.d("Today", "bitmap Width ------ " + bitmaps[0].getWidth());
-        Log.d("Today", "bitmap Height ------ " + bitmaps[0].getHeight());
-        Log.d("Today", "point1 ------" + points[0].x + " ------ " + points[0].y);
-        Log.d("Today", "point2 ------" + points[1].x + " ------ " + points[1].y);
         return points;
     }
 

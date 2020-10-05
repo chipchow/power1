@@ -19,6 +19,7 @@ import com.xiaomei.passportphoto.R;
 import com.xiaomei.passportphoto.activity.PhotoSelectActivity;
 import com.xiaomei.passportphoto.activity.TakeActivity;
 import com.xiaomei.passportphoto.model.PhotoSpec;
+import com.xiaomei.passportphoto.model.RunContext;
 
 /**
  * Created by Adib on 13-Apr-17.
@@ -44,10 +45,10 @@ public class PassportPhotoFragment extends Fragment implements View.OnClickListe
     private Button button_ok;
 
 
-    private static final PhotoSpec s_1inch = new PhotoSpec(295,413,15,100,300);
-    private static PhotoSpec s_2inch = new PhotoSpec(413,579,18,120,300);
-    private static PhotoSpec s_less1inch = new PhotoSpec(260,378,10,80,300);
-    private static PhotoSpec s_less2inch = new PhotoSpec(413,531,15,120,300);
+    private static final PhotoSpec s_1inch = new PhotoSpec(295,413, 25,35,15,100,11.8f);//5:7，2.5：3.5
+    private static PhotoSpec s_2inch = new PhotoSpec(413,579, 35,49,18,120,11.8f);//5:7,3.5:4.9
+    private static PhotoSpec s_less1inch = new PhotoSpec(260,378, 22,32,10,80,300);//22,32
+    private static PhotoSpec s_less2inch = new PhotoSpec(389,566, 33,48,15,120,300);//3.3,4.8
     private static PhotoSpec s_more1inch = s_less2inch;
 
     public static PassportPhotoFragment newInstance() {
@@ -89,18 +90,7 @@ public class PassportPhotoFragment extends Fragment implements View.OnClickListe
         button_less21inch = mRootView.findViewById(R.id.button_less2inch);
         button_more1inch = mRootView.findViewById(R.id.button_more1inch);
         button_custom = mRootView.findViewById(R.id.button_custom);
-//        edit_width = mRootView.findViewById(R.id.editText_width);
-//        edit_height = mRootView.findViewById(R.id.editText_height);
-//        edit_smallest = mRootView.findViewById(R.id.editText_smallest);
-//        edit_bigest = mRootView.findViewById(R.id.editText_bigest);
-//        edit_dpi = mRootView.findViewById(R.id.editText_dpi);
-//        button_ok = mRootView.findViewById(R.id.button_OK);
 
-//        button_ok.setEnabled(false);
-
-//        button_ok.setOnClickListener(this);
-
-        setEditText(false);
     }
 
     private void control() {
@@ -110,22 +100,6 @@ public class PassportPhotoFragment extends Fragment implements View.OnClickListe
         button_less21inch.setOnClickListener(this);
         button_more1inch.setOnClickListener(this);
         button_custom.setOnClickListener(this);
-    }
-
-    private void setEditText(boolean val){
-//        edit_width.setEnabled(val);
-//        edit_height.setEnabled(val);
-//        edit_smallest.setEnabled(val);
-//        edit_bigest.setEnabled(val);
-//        edit_dpi.setEnabled(val);
-    }
-
-    private void fillEditText(PhotoSpec ps){
-//        edit_width.setText(String.valueOf(ps.mWidth));
-//        edit_height.setText(String.valueOf(ps.mHeight));
-//        edit_smallest.setText(String.valueOf(ps.mSmallest));
-//        edit_bigest.setText(String.valueOf(ps.mBigest));
-//        edit_dpi.setText(String.valueOf(ps.mDPI));
     }
 
     @Override
@@ -149,39 +123,34 @@ public class PassportPhotoFragment extends Fragment implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        Intent intent = new Intent(mActivity, TakeActivity.class);
         switch (view.getId()) {
             case R.id.button_1inch:
-                fillEditText(s_1inch);
-                Intent intent = new Intent(mActivity, TakeActivity.class);
+                RunContext.getInstance().mSpec = s_1inch;
                 startActivity(intent);
-//                button_ok.setEnabled(true);
                 break;
             case R.id.button_2inch:
-                fillEditText(s_2inch);
-//                button_ok.setEnabled(true);
+                RunContext.getInstance().mSpec = s_2inch;
+                startActivity(intent);
                 break;
             case R.id.button_less1inch:
-                fillEditText(s_less1inch);
-//                button_ok.setEnabled(true);
+                RunContext.getInstance().mSpec = s_less1inch;
+                startActivity(intent);
                 break;
             case R.id.button_less2inch:
-                fillEditText(s_less2inch);
-//                button_ok.setEnabled(true);
+                RunContext.getInstance().mSpec = s_less2inch;
+                startActivity(intent);
                 break;
             case R.id.button_more1inch:
-                fillEditText(s_more1inch);
-//                button_ok.setEnabled(true);
+                RunContext.getInstance().mSpec = s_more1inch;
+                startActivity(intent);
                 break;
             case R.id.button_custom:
-                setEditText(true);
-                break;
-            case R.id.button_OK:
-                Intent iPhotoSelectIntent = new Intent(mActivity, PhotoSelectActivity.class);
-                startActivity(iPhotoSelectIntent);
                 break;
             default:
                 break;
         }
+
     }
 
 }
