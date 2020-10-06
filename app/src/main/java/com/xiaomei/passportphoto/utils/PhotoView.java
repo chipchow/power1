@@ -99,17 +99,17 @@ public class PhotoView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawColor(mBgColor);
-        int w = mBitmap.getWidth();
-        int h = mBitmap.getHeight();
-        mSrc.left = (int)(-deltaX - dx);
-        mSrc.top = (int)(-deltaY - dy);
-        mSrc.right = (int)(-deltaX - dx + w);
-        mSrc.bottom = (int)(-deltaY - dy + h);
-        mDst.left = mDst.top = 0;
-        mDst.right = mWidth;
-        mDst.bottom = mHeight;
-        canvas.drawBitmap(mBitmap,mSrc,mDst , mPaint);
-//        canvas.drawBitmap(mBitmap,deltaX+dx,deltaY+dy,mPaint);
+//        int w = mBitmap.getWidth();
+//        int h = mBitmap.getHeight();
+//        mSrc.left = (int)(-deltaX - dx);
+//        mSrc.top = (int)(-deltaY - dy);
+//        mSrc.right = (int)(-deltaX - dx + w);
+//        mSrc.bottom = (int)(-deltaY - dy + h);
+//        mDst.left = mDst.top = 0;
+//        mDst.right = mWidth;
+//        mDst.bottom = mHeight;
+//        canvas.drawBitmap(mBitmap,mSrc,mDst , mPaint);
+        canvas.drawBitmap(mBitmap,deltaX+dx,deltaY+dy,mPaint);
         if (mEditable){
             if (p1x != 0 && p1y != 0 && p2x != 0 && p2y != 0) {
                 canvas.drawRect(p1x, p1y, p2x, p2y, mPaint);
@@ -198,12 +198,13 @@ public class PhotoView extends View {
     }
 
     public Bitmap getBitmap(){
-        Bitmap bitmap = Bitmap.createBitmap((int)(p2x-p1x),(int)(p2y-p1y), Bitmap.Config.ARGB_8888);
+        Bitmap bitmap = Bitmap.createBitmap(RunContext.getInstance().mSpec.mWidth,RunContext.getInstance().mSpec.mHeight, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
         canvas.drawColor(mBgColor);
         Rect src = new Rect((int)(p1x-deltaX),(int)(p1y-deltaY),(int)(p2x-deltaX),(int)(p2y-deltaY));
-        Rect dist = new Rect(0,0,bitmap.getWidth(),bitmap.getHeight());
+        Rect dist = new Rect(0,0,RunContext.getInstance().mSpec.mWidth,RunContext.getInstance().mSpec.mHeight);
         canvas.drawBitmap(mBitmap,src,dist,mPaint);
+
         return bitmap;
     }
 }

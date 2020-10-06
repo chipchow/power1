@@ -110,13 +110,15 @@ public class ChangeBGActivity extends AppCompatActivity implements View.OnClickL
         btn_blue.setSelected(false);
 
         mLayout_image = findViewById(R.id.constraintLayout_image);
-        ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(this);
+        int w = RunContext.getInstance().mBitmap.getWidth();
+        int h = RunContext.getInstance().mBitmap.getHeight();
+        ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(w,h);
         lp.leftToLeft = ConstraintSet.PARENT_ID;
         lp.rightToRight = ConstraintSet.PARENT_ID;
         lp.topToTop = ConstraintSet.PARENT_ID;
-        
         imgPhoto = new PhotoView(this);
         imgPhoto.setLayoutParams(lp);
+        mLayout_image.addView(imgPhoto,lp);
     }
 
     private void control() {
@@ -148,6 +150,19 @@ public class ChangeBGActivity extends AppCompatActivity implements View.OnClickL
                 mLayout_selectbg.setVisibility(View.INVISIBLE);
                 mLayout_save.setVisibility(View.VISIBLE);
                 Bitmap bitmap = imgPhoto.getBitmap();
+
+                mLayout_image.removeView(imgPhoto);
+                int w = bitmap.getWidth();
+                int h = bitmap.getHeight();
+                ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(w,h);
+                lp.leftToLeft = ConstraintSet.PARENT_ID;
+                lp.rightToRight = ConstraintSet.PARENT_ID;
+                lp.topToTop = ConstraintSet.PARENT_ID;
+                lp.bottomToBottom = ConstraintSet.PARENT_ID;
+                imgPhoto = new PhotoView(this);
+                imgPhoto.setLayoutParams(lp);
+                mLayout_image.addView(imgPhoto,lp);
+
                 imgPhoto.setImageBitmap(bitmap,false,false);
                 break;
             case R.id.imageButton_red:
