@@ -36,8 +36,6 @@ public class PhotoView extends View {
     public int mWidth,mHeight;
     private float currentX, currentY, deltaX, deltaY, dx,dy;
     private boolean mEditable;//1,crop
-    Rect mSrc = new Rect();
-    Rect mDst = new Rect();
     public PhotoView(Context context) {
         super(context, null);
         init(context);
@@ -120,7 +118,7 @@ public class PhotoView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (mBitmap != null) {
+        if (mBitmap != null && mEditable) {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     currentX = event.getX();
