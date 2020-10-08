@@ -29,12 +29,21 @@
         </activity>
 
         <activity android:name=".activity.TakeActivity"
+            android:theme="@style/AppTheme"
             android:screenOrientation="portrait">
         </activity>
 
         <activity android:name=".activity.ChangeBGActivity"
+            android:theme="@style/CustomTitleTheme"
             android:screenOrientation="portrait"/>
         <activity android:name=".activity.AccountAboutActivity"
+            android:theme="@style/CustomTitleTheme"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AccountFeedbackActivity"
+            android:theme="@style/CustomTitleTheme"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AccountOrderActivity"
+            android:theme="@style/CustomTitleTheme"
             android:screenOrientation="portrait"/>
     </application>
 

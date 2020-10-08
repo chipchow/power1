@@ -27,7 +27,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraint_selectbg"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
@@ -37,6 +37,7 @@
             android:layout_marginLeft="32dp"
             android:layout_marginTop="32dp"
             android:text="选择背景"
+            android:textSize="@dimen/titleSize"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,7 +88,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraint_save"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="200dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent">
 

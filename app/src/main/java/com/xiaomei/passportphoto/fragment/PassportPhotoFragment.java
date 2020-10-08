@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.xiaomei.passportphoto.R;
+import com.xiaomei.passportphoto.activity.MainActivity;
 import com.xiaomei.passportphoto.activity.TakeActivity;
 import com.xiaomei.passportphoto.model.PhotoSpec;
 import com.xiaomei.passportphoto.model.RunContext;
@@ -145,6 +146,8 @@ public class PassportPhotoFragment extends Fragment implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.button_custom:
+                MainActivity activity = (MainActivity)getActivity();
+                activity.switchFragment(1);
                 break;
             default:
                 break;

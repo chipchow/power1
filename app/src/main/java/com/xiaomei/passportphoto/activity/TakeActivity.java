@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -38,7 +39,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 
 
-public class TakeActivity extends AppCompatActivity implements View.OnClickListener{
+public class TakeActivity extends BaseActivity implements View.OnClickListener{
     SurfaceView cameraGLSurfaceView;
     ImageView take_switchcamera;
     ImageView select_take;
@@ -61,6 +62,7 @@ public class TakeActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.layout_take);
         init();
         control();
+
     }
 
     private void init(){
@@ -136,9 +138,11 @@ public class TakeActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_confirm:
                 Intent iChangeBgItent = new Intent(TakeActivity.this, ChangeBGActivity.class);
+                iChangeBgItent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 iChangeBgItent.putExtra("filepath",BitmapUtils.getTmpPath(TakeActivity.this));
                 RunContext.getInstance().mBitmap = mOutputBitmap;
                 startActivity(iChangeBgItent);
+                finish();
                 break;
             case R.id.button_redo:
                 mLayout_confirm.setVisibility(View.INVISIBLE);
@@ -185,9 +189,11 @@ public class TakeActivity extends AppCompatActivity implements View.OnClickListe
                     Bitmap bitmapImage = BitmapUtils.scaleImage(loadedImage,960,1280);
                     BitmapUtils.saveBitmap(bitmapImage,BitmapUtils.getTmpPath(TakeActivity.this));
                     Intent iChangeBgItent = new Intent(TakeActivity.this, ChangeBGActivity.class);
+                    iChangeBgItent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     iChangeBgItent.putExtra("filepath",BitmapUtils.getTmpPath(TakeActivity.this));
                     RunContext.getInstance().mBitmap = bitmapImage;
                     startActivity(iChangeBgItent);
+                    finish();
                 }
 
                 @Override

@@ -20,6 +20,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import com.baidu.aip.bodyanalysis.AipBodyAnalysis;
 import com.xiaomei.passportphoto.logic.PhotoApp;
+import com.xiaomei.passportphoto.model.Photo;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -241,6 +242,10 @@ public class BitmapUtils {
 
     public static String getTmpPath(Context context){
         return context.getFilesDir() + File.separator + "tmp";
+    }
+
+    public static String getThumbPath(Context context, String pid){
+        return context.getFilesDir() + File.separator + pid + ".jpg";
     }
     private static final char[] hexCode = "0123456789ABCDEF".toCharArray();
 

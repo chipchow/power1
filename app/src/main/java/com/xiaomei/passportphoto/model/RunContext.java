@@ -16,11 +16,16 @@ public class RunContext {
     public long mUpdateSessionTime;
     public Bitmap mBitmap;
     public PhotoSpec mSpec;
+    public int mSpecType;
+    public int mBackground;
     private static RunContext mInstance = null;
     public RunContext(){
         mModel = Build.MODEL;
         mVer = BitmapUtils.getAPKVer();
         mOS = Build.VERSION.SDK_INT;
+        mUser = new User();
+        mBackground = 1;
+        mSpecType = 0;
     }
 
     public static RunContext getInstance(){

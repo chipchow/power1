@@ -8,10 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import com.xiaomei.passportphoto.R;
 import com.xiaomei.passportphoto.activity.AccountAboutActivity;
+import com.xiaomei.passportphoto.activity.AccountFeedbackActivity;
 
 /**
  * Created by Adib on 13-Apr-17.
@@ -62,15 +62,19 @@ public class AccountFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.layout_customercenter:
                 break;
-            case R.id.layout_feedback:
+            case R.id.layout_feedback:{
+                Intent intent = new Intent(mActivity, AccountFeedbackActivity.class);
+                mActivity.startActivity(intent);
+            }
                 break;
             case R.id.layout_score:
                 break;
             case R.id.layout_invite:
                 break;
-            case R.id.layout_about:
+            case R.id.layout_about: {
                 Intent intent = new Intent(mActivity, AccountAboutActivity.class);
                 mActivity.startActivity(intent);
+            }
                 break;
             case R.id.layout_update:
                 break;

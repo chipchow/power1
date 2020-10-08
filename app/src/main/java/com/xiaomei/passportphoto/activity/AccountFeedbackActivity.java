@@ -5,13 +5,13 @@ import android.view.Window;
 
 import com.xiaomei.passportphoto.R;
 
-public class AccountAboutActivity extends BaseActivity {
+public class AccountFeedbackActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-        setContentView(R.layout.layout_about);
+        setContentView(R.layout.layout_feedback);
         setHasTitle(true);
-        setTitleText("关于");
+        setTitleText("用户反馈");
     }
 }

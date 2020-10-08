@@ -4,7 +4,6 @@ import android.os.Handler;
 
 import com.xiaomei.passportphoto.model.Photo;
 import com.xiaomei.passportphoto.model.RunContext;
-import com.xiaomei.passportphoto.model.User;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -48,7 +47,7 @@ public class PhotoController {
         params.put("cmd","matting");
         params.put("loginid",RunContext.getInstance().mUser.mUserID);
         params.put("session",RunContext.getInstance().mSession);
-        params.put("photoorigin", photo.mPhotoOrigin);
+        params.put("photoorigin", photo.mNetForMatting_PhotoOrigin);
         mr.doRequest();
     }
 
@@ -58,8 +57,8 @@ public class PhotoController {
         params.put("cmd","upload");
         params.put("loginid",RunContext.getInstance().mUser.mUserID);
         params.put("session",RunContext.getInstance().mSession);
-        params.put("photopost",photo.mPhotoPost);
-        params.put("thumbnail",photo.mThumbnail);
+        params.put("photopost",photo.mNetForUpload_PhotoPost);
+        params.put("thumbnail",photo.mNetForUpload_PhotoThumbnail);
         params.put("photoid",photo.mPID);
         ur.doRequest();
     }

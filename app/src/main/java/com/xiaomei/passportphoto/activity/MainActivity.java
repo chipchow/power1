@@ -49,7 +49,7 @@ public class MainActivity extends BottomBarHolderActivity implements PassportPho
         mCurrentFragment[2] = QAFragment.newInstance();
         mCurrentFragment[3]= AccountFragment.newInstance();
         NavigationPage page1 = new NavigationPage("证件照", ContextCompat.getDrawable(this, R.drawable.passport_unsel),ContextCompat.getDrawable(this,R.drawable.passport_select), mCurrentFragment[0]);
-        NavigationPage page2 = new NavigationPage("照相馆", ContextCompat.getDrawable(this, R.drawable.shop_unsel), ContextCompat.getDrawable(this,R.drawable.shop_selected), mCurrentFragment[1]);
+        NavigationPage page2 = new NavigationPage("规格", ContextCompat.getDrawable(this, R.drawable.shop_unsel), ContextCompat.getDrawable(this,R.drawable.shop_selected), mCurrentFragment[1]);
         NavigationPage page3 = new NavigationPage("客服区", ContextCompat.getDrawable(this, R.drawable.ic_assessment_black_24dp), ContextCompat.getDrawable(this, R.drawable.ic_assessment_black_24dp), mCurrentFragment[2]);
         NavigationPage page4 = new NavigationPage("我的", ContextCompat.getDrawable(this, R.drawable.account_unsel), ContextCompat.getDrawable(this, R.drawable.account_selected), mCurrentFragment[3]);
 
@@ -112,19 +112,4 @@ public class MainActivity extends BottomBarHolderActivity implements PassportPho
         Toast.makeText(this, "Clicked!", Toast.LENGTH_SHORT).show();
     }
 
-    public FragmentTransaction switchFragment(int tabIndex,int resid, Fragment targetFragment) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        if (!targetFragment.isAdded()) {
-            //第一次使用switchFragment()时currentFragment为null，所以要判断一下
-            if (mCurrentFragment[tabIndex] != null) {
-                transaction.hide(mCurrentFragment[tabIndex]);
-            }
-            transaction.add(resid, targetFragment,targetFragment.getClass().getName()).commit();
-
-        } else {
-            transaction.hide(mCurrentFragment[tabIndex]).show(targetFragment).commit();
-        }
-        mCurrentFragment[tabIndex] = targetFragment;
-        return transaction;
-    }
 }

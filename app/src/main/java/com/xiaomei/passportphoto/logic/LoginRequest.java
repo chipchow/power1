@@ -11,6 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.List;
+
 public class LoginRequest extends BaseHttpPost {
 
     public LoginRequest(Handler handle, Runnable run){
@@ -29,12 +31,16 @@ public class LoginRequest extends BaseHttpPost {
             JSONArray photolist = mJson.getJSONArray("photolist");
             int listsize = photolist.length();
             if(listsize > 0) {
-                user.mPhotoList = new Photo[listsize];
+                List<Photo> photoList = user.getmPhotoList();
+
                 for (int i = 0; i < photolist.length(); i++) {
                     JSONObject o = photolist.getJSONObject(i);
-                    user.mPhotoList[i].mPID = o.getString("photoid");
+                    String pid = o.getString("photoid");
+                    Photo p = new Photo(pid,0);
                     byte[] thumb = o.getString("thumbnail").getBytes();
-                    user.mPhotoList[i].mDownloadThumbnail = Base64.decode(thumb, Base64.DEFAULT);
+                    byte[] bytes = Base64.decode(thumb, Base64.DEFAULT);
+                    p.setNetForLoginThumbnail(PhotoApp.getAppContext(),bytes,pid);
+                    photoList.add(p);
                 }
             }
 

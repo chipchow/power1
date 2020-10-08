@@ -5,7 +5,6 @@ import android.util.Base64;
 
 import com.xiaomei.passportphoto.model.Photo;
 import com.xiaomei.passportphoto.model.RunContext;
-import com.xiaomei.passportphoto.model.User;
 
 import org.json.JSONException;
 
@@ -28,7 +27,7 @@ public class MattingRequest extends BaseHttpPost {
             Photo p = RunContext.getInstance().mUser.mCurrent;
             if(p != null){
                 p.mPID = photoid;
-                p.mPhotoMat = image;
+                p.mNetForMatting_PhotoMat = image;
             }
         }catch(JSONException e){
             e.printStackTrace();

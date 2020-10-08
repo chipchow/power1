@@ -71,4 +71,21 @@ public class BottomBarHolderActivity extends AppCompatActivity implements Bottom
         mBottomNav.setMainTab(menuType);
 
     }
+
+    public int getCurrentTab(){
+        return  mBottomNav.getCurrentTab();
+    }
+
+    public void switchFragment(int tabIndex){
+        Fragment fragment = null;
+        fragment = mNavigationPageList.get(tabIndex).getFragment();
+
+        // replacing fragment with the current one
+        if (fragment != null) {
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frameLayout, fragment);
+            fragmentTransaction.commit();
+        }
+        mBottomNav.setMainTab(tabIndex);
+    }
 }

@@ -36,6 +36,7 @@ public class BottomNavigationBar implements View.OnClickListener {
     private View mViewBar1, mViewBar2, mViewBar3, mViewBar4;
     private AppCompatImageView mImageViewBar1, mImageViewBar2, mImageViewBar3, mImageViewBar4;
     private AppCompatTextView mTextViewBar1, mTextViewBar2, mTextViewBar3, mTextViewBar4;
+    private int mCurrent=0;
 
     public BottomNavigationBar(Context mContext, List<NavigationPage> pages, BottomNavigationMenuClickListener listener) {
 
@@ -88,15 +89,26 @@ public class BottomNavigationBar implements View.OnClickListener {
         this.mLLBar4.setOnClickListener(this);
     }
 
+    public int getCurrentTab(){
+        return mCurrent;
+    }
+
     public void setMainTab(int menuType){
+        mCurrent = menuType;
+        this.mViewBar1.setVisibility(View.INVISIBLE);
+        this.mViewBar2.setVisibility(View.INVISIBLE);
+        this.mViewBar3.setVisibility(View.INVISIBLE);
+        this.mViewBar4.setVisibility(View.INVISIBLE);
         switch (menuType){
             case 0:
+                mViewBar1.setVisibility(View.VISIBLE);
                 this.mImageViewBar1.setImageDrawable(mNavigationPageList.get(0).getIcon_selected());
                 this.mImageViewBar2.setImageDrawable(mNavigationPageList.get(1).getIcon());
                 this.mImageViewBar3.setImageDrawable(mNavigationPageList.get(2).getIcon());
                 this.mImageViewBar4.setImageDrawable(mNavigationPageList.get(3).getIcon());
                 break;
             case 1:
+                this.mViewBar2.setVisibility(View.VISIBLE);
                 this.mImageViewBar1.setImageDrawable(mNavigationPageList.get(0).getIcon());
                 this.mImageViewBar2.setImageDrawable(mNavigationPageList.get(1).getIcon_selected());
                 this.mImageViewBar3.setImageDrawable(mNavigationPageList.get(2).getIcon());
@@ -105,6 +117,7 @@ public class BottomNavigationBar implements View.OnClickListener {
             case 2:
                 break;
             case 3:
+                this.mViewBar4.setVisibility(View.VISIBLE);
                 this.mImageViewBar1.setImageDrawable(mNavigationPageList.get(0).getIcon());
                 this.mImageViewBar2.setImageDrawable(mNavigationPageList.get(1).getIcon());
                 this.mImageViewBar3.setImageDrawable(mNavigationPageList.get(2).getIcon());
@@ -117,10 +130,6 @@ public class BottomNavigationBar implements View.OnClickListener {
     }
     @Override
     public void onClick(View view) {
-
-        // setting clicked bar as highlighted view
-        setView(view);
-
         // triggering click listeners
         if (view.getId() == R.id.linearLayoutBar1) {
             mListener.onClickedOnBottomNavigationMenu(MENU_BAR_1);
@@ -140,56 +149,6 @@ public class BottomNavigationBar implements View.OnClickListener {
 
     }
 
-    /**
-     * sets the clicked view as selected, resets other views
-     * @param view clicked view
-     */
-    private void setView(View view) {
-
-        // seting all highlight bar as invisible
-        this.mViewBar1.setVisibility(View.INVISIBLE);
-        this.mViewBar2.setVisibility(View.INVISIBLE);
-        this.mViewBar3.setVisibility(View.INVISIBLE);
-        this.mViewBar4.setVisibility(View.INVISIBLE);
-
-        // resetting colors of all icons
-        this.mImageViewBar1.setColorFilter(ContextCompat.getColor(mContext, R.color.colorNavAccentUnselected));
-        this.mImageViewBar2.setColorFilter(ContextCompat.getColor(mContext, R.color.colorNavAccentUnselected));
-        this.mImageViewBar3.setColorFilter(ContextCompat.getColor(mContext, R.color.colorNavAccentUnselected));
-        this.mImageViewBar4.setColorFilter(ContextCompat.getColor(mContext, R.color.colorNavAccentUnselected));
-
-        // resetting colors of all titles
-        this.mTextViewBar1.setTextColor(ContextCompat.getColor(mContext, R.color.colorNavAccentUnselected));
-        this.mTextViewBar2.setTextColor(ContextCompat.getColor(mContext, R.color.colorNavAccentUnselected));
-        this.mTextViewBar3.setTextColor(ContextCompat.getColor(mContext, R.color.colorNavAccentUnselected));
-        this.mTextViewBar4.setTextColor(ContextCompat.getColor(mContext, R.color.colorNavAccentUnselected));
-
-        // selectively colorizing the marked view
-        if (view.getId() == R.id.linearLayoutBar1) {
-            this.mViewBar1.setVisibility(View.VISIBLE);
-            this.mImageViewBar1.setColorFilter(ContextCompat.getColor(mContext, R.color.colorNavAccentSelected));
-            this.mTextViewBar1.setTextColor(ContextCompat.getColor(mContext, R.color.colorNavAccentSelected));
-            return;
-        } else if (view.getId() == R.id.linearLayoutBar2) {
-            this.mViewBar2.setVisibility(View.VISIBLE);
-            this.mImageViewBar2.setColorFilter(ContextCompat.getColor(mContext, R.color.colorNavAccentSelected));
-            this.mTextViewBar2.setTextColor(ContextCompat.getColor(mContext, R.color.colorNavAccentSelected));
-            return;
-        } else if (view.getId() == R.id.linearLayoutBar3) {
-            this.mViewBar3.setVisibility(View.VISIBLE);
-            this.mImageViewBar3.setColorFilter(ContextCompat.getColor(mContext, R.color.colorNavAccentSelected));
-            this.mTextViewBar3.setTextColor(ContextCompat.getColor(mContext, R.color.colorNavAccentSelected));
-            return;
-        } else if (view.getId() == R.id.linearLayoutBar4) {
-            this.mViewBar4.setVisibility(View.VISIBLE);
-            this.mImageViewBar4.setColorFilter(ContextCompat.getColor(mContext, R.color.colorNavAccentSelected));
-            this.mTextViewBar4.setTextColor(ContextCompat.getColor(mContext, R.color.colorNavAccentSelected));
-            return;
-        } else {
-            return;
-        }
-
-    }
 
     public interface BottomNavigationMenuClickListener {
         void onClickedOnBottomNavigationMenu(int menuType);

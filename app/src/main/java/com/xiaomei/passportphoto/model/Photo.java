@@ -1,16 +1,96 @@
 package com.xiaomei.passportphoto.model;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+
+import com.xiaomei.passportphoto.utils.BitmapUtils;
+
 import java.io.Serializable;
 
 public class Photo implements Serializable {
     public String mPID;
-    public String mThumbnail;
-    public byte[] mDownloadThumbnail;
-    public String mPhotoOrigin;
-    public String mPhotoPost;
-    public byte[] mPhotoMat;
+    public String mThumbnailPath;
+    public int mSpecType;
+    public int mBackGround;
+    public PhotoSpec mSpec;
+    public String mOrderNo;
+    public float mCost;
+    public boolean mPaid;
+    public String mNetForUpload_PhotoThumbnail;
+    public byte[] mNetForLogin_DownloadThumbnail;
+    public String mNetForMatting_PhotoOrigin;
+    public String mNetForUpload_PhotoPost;
+    public byte[] mNetForMatting_PhotoMat;
+    public Photo(){
+
+    }
+
+    public Photo(String pid, int specType){
+        mCost = 1;
+        mPID = pid;
+        mOrderNo = pid;
+        mPaid = false;
+        mSpecType = specType;
+    }
+
+    public void setmPaid(boolean paid){
+        mPaid = paid;
+    }
+
+    public void setmBackGround(int bg){
+        mBackGround = bg;
+    }
+
+    public String getSpecString(){
+        String spec="",bg="";
+        switch (mSpecType){
+            case 0:
+                spec="一寸";
+                break;
+            case 1:
+                spec="小一寸";
+                break;
+            case 2:
+                spec="二寸";
+                break;
+            case 3:
+                spec="小二寸";
+                break;
+            case 4:
+                spec="大一寸";
+                break;
+            case 5:
+                spec="其他";
+                break;
+            default:
+                break;
+        }
+        switch (mBackGround){
+            case 0:
+                bg="红底";
+                break;
+            case 1:
+                bg="白底";
+                break;
+            case 2:
+                bg="蓝底";
+                break;
+            default:
+                break;
+        }
+        return spec+"("+bg+")";
+    }
+
+    public String setNetForLoginThumbnail(Context context, byte[] bytes, String pid){
+        mNetForLogin_DownloadThumbnail = bytes;
+        String imagePath = BitmapUtils.getThumbPath(context, pid);
+        BitmapUtils.saveByteArray(bytes,imagePath);
+        return imagePath;
+    }
+
     @Override
     public String toString() {
         return mPID;
     }
+
 }
