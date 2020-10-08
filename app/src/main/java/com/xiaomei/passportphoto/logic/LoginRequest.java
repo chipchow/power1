@@ -34,8 +34,7 @@ public class LoginRequest extends BaseHttpPost {
                     JSONObject o = photolist.getJSONObject(i);
                     user.mPhotoList[i].mPID = o.getString("photoid");
                     byte[] thumb = o.getString("thumbnail").getBytes();
-                    user.mPhotoList[i].mThumbnail = Base64.decode(thumb, Base64.DEFAULT);
-                    user.mPhotoList[i].mThumbPath = "";
+                    user.mPhotoList[i].mDownloadThumbnail = Base64.decode(thumb, Base64.DEFAULT);
                 }
             }
 

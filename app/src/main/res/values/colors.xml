@@ -31,4 +31,5 @@
     <color name="photobackblue">#5697f7</color>
     <color name="photobackred">#eb3323</color>
     <color name="photobackwhite">#ffffff</color>
+    <color name="seperator_horizontal">#0e888888</color>
 </resources>

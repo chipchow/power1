@@ -131,5 +131,8 @@
     <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout:1.1.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.yukuku:ambilwarna:2.0.1@aar" level="project" />
     <orderEntry type="module" module-name="openCVLibrary340" />
+    <orderEntry type="module" module-name="openCVLibrary340" />
+    <orderEntry type="module" module-name="openCVLibrary340" />
+    <orderEntry type="module" module-name="openCVLibrary340" />
   </component>
 </module>

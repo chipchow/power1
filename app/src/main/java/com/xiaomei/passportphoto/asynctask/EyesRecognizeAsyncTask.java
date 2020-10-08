@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.xiaomei.passportphoto.activity.CropImageActivity;
 import com.xiaomei.passportphoto.logic.PhotoApp;
 
 import org.opencv.android.Utils;
@@ -28,7 +27,7 @@ public class EyesRecognizeAsyncTask extends AsyncTask<Bitmap, Void, org.opencv.c
 
     @Override
     protected void onPreExecute() {
-        dialog.setMessage("Đang xử lý ảnh , vui lòng chờ giây lát.");
+        dialog.setMessage("识别中");
         dialog.setCancelable(false);
         dialog.show();
         Log.d("Today", "Show progress");

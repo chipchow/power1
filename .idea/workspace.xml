@@ -31,15 +31,239 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59271f32-ea92-4694-a5ac-1bcc32f283b3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/A6PhotoView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/AccountAboutActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/BaseActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/TitleBar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/account_custom_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/arrow.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/gradient_button.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/line_horizotal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/stroke_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_about.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_base.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_feedback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_titlebar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ChangeBGActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ChangeBGActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/PhotoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/PhotoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ChangeBackgroundActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/CropImageActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ImageProcessingActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/PhotoSelectActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/RotationImageActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/SaveImageActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/asynctask/CheckAutoEnableAsyncTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/asynctask/EyesRecognizeAsyncTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/asynctask/EyesRecognizeAsyncTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/fragment/AccountFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/fragment/AccountFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/fragment/PassportPhotoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/fragment/PassportPhotoFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/BaseHttpPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/BaseHttpPost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/model/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/model/Photo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/BitmapUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/BitmapUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/CameraInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/CameraInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/CustomView.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_change_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_crop_image.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_image_processing.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_rotation_image.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_save_image.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_account.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_change_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_photo_select.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_select_paper_size.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_select_size.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_size_select.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_toolbar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/generated/source/aidl/debug/org/opencv/engine/OpenCVEngineInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/generated/source/r/debug/org/opencv/R.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/attr/R.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/BuildConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/R$attr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/R$id.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/R$styleable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/R.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/AsyncServiceHelper$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/AsyncServiceHelper$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/AsyncServiceHelper$3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/AsyncServiceHelper$3$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/AsyncServiceHelper$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/AsyncServiceHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/BaseLoaderCallback$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/BaseLoaderCallback$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/BaseLoaderCallback$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/BaseLoaderCallback$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/BaseLoaderCallback$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/BaseLoaderCallback$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/BaseLoaderCallback$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/BaseLoaderCallback.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/Camera2Renderer$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/Camera2Renderer$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/Camera2Renderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/CameraBridgeViewBase$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/CameraBridgeViewBase$CvCameraViewFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/CameraBridgeViewBase$CvCameraViewListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/CameraBridgeViewBase$CvCameraViewListener2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/CameraBridgeViewBase$CvCameraViewListenerAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/CameraBridgeViewBase$ListItemAccessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/CameraBridgeViewBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/CameraGLRendererBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/CameraGLSurfaceView$CameraTextureListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/CameraGLSurfaceView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/CameraRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/FpsMeter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/InstallCallbackInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/JavaCameraView$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/JavaCameraView$CameraWorker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/JavaCameraView$JavaCameraFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/JavaCameraView$JavaCameraSizeAccessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/JavaCameraView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/LoaderCallbackInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/OpenCVLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/StaticHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/android/Utils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/calib3d/Calib3d.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/calib3d/StereoBM.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/calib3d/StereoMatcher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/calib3d/StereoSGBM.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/Algorithm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/Core$MinMaxLocResult.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/Core.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/CvException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/CvType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/DMatch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/KeyPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/Mat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfByte.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfDMatch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfDouble.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfFloat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfFloat4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfFloat6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfInt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfInt4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfKeyPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfPoint2f.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfPoint3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfPoint3f.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfRect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/MatOfRect2d.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/Point.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/Point3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/Range.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/Rect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/Rect2d.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/RotatedRect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/Scalar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/Size.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/TermCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/core/TickMeter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/dnn/DictValue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/dnn/Dnn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/dnn/Layer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/dnn/Net.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/engine/OpenCVEngineInterface$Stub$Proxy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/engine/OpenCVEngineInterface$Stub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/engine/OpenCVEngineInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/AKAZE.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/AgastFeatureDetector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/BFMatcher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/BOWImgDescriptorExtractor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/BOWKMeansTrainer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/BOWTrainer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/BRISK.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/DescriptorExtractor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/DescriptorMatcher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/FastFeatureDetector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/Feature2D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/FeatureDetector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/Features2d.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/FlannBasedMatcher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/GFTTDetector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/KAZE.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/MSER.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/ORB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/features2d/Params.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/imgcodecs/Imgcodecs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/imgproc/CLAHE.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/imgproc/Imgproc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/imgproc/LineSegmentDetector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/imgproc/Moments.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/imgproc/Subdiv2D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/ANN_MLP.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/ANN_MLP_ANNEAL.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/Boost.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/DTrees.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/EM.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/KNearest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/LogisticRegression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/Ml.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/NormalBayesClassifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/ParamGrid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/RTrees.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/SVM.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/SVMSGD.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/StatModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/ml/TrainData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/objdetect/BaseCascadeClassifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/objdetect/CascadeClassifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/objdetect/HOGDescriptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/objdetect/Objdetect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/osgi/OpenCVInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/osgi/OpenCVNativeLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/AlignExposures.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/AlignMTB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/CalibrateCRF.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/CalibrateDebevec.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/CalibrateRobertson.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/MergeDebevec.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/MergeExposures.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/MergeMertens.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/MergeRobertson.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/Photo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/Tonemap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/TonemapDrago.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/TonemapDurand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/TonemapMantiuk.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/photo/TonemapReinhard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/utils/Converters.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/video/BackgroundSubtractor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/video/BackgroundSubtractorKNN.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/video/BackgroundSubtractorMOG2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/video/DenseOpticalFlow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/video/DualTVL1OpticalFlow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/video/FarnebackOpticalFlow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/video/KalmanFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/video/SparseOpticalFlow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/video/SparsePyrLKOpticalFlow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/video/Video.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/videoio/VideoCapture.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/videoio/VideoWriter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/classes/debug/org/opencv/videoio/Videoio.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/extractedTypedefs/debug/typedefs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/incremental/compileDebugAidl/dependency.store" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/incremental/debug-mergeJniLibs/merge-state" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/intermediate-jars/debug/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/intermediate-jars/debug/res.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/javaPrecompile/debug/annotationProcessors.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/manifests/aapt/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/manifests/aapt/debug/output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/manifests/full/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/manifests/full/debug/output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/packaged-classes/debug/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/transforms/mergeJavaRes/debug/0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/transforms/mergeJavaRes/debug/__content__.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/transforms/mergeJniLibs/debug/__content__.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/intermediates/transforms/stripDebugSymbol/debug/__content__.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary340/build/outputs/aar/openCVLibrary340-debug.aar" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,87 +283,107 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="power1" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/PhotoView.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/option_menu_check.xml">
+          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="100" column="38" lean-forward="true" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="20">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_mainfunction_item.xml">
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/arrow.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/A6PhotoView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="97" column="40" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3917#3918#0" expanded="true" />
-                <element signature="e#3950#3951#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/BitmapUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="174" column="46" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="46" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="61" lean-forward="true" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/graphics/Matrix.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-              <folding>
-                <element signature="e#1552#1553#0" expanded="true" />
-                <element signature="e#1603#1604#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/CropImageActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="160" selection-start-line="160" selection-end-line="160" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_changebg.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_titlebar.xml">
           <provider selected="true" editor-type-id="android-designer2" />
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="120">
+              <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_about.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/TitleBar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_radio_button.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_base.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="46" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -152,8 +396,8 @@
         <option value="valueResourceFile" />
         <option value="Interface" />
         <option value="layoutResourceFile" />
-        <option value="resourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -173,6 +417,9 @@
       <find>MattingTask</find>
       <find>intent</find>
       <find>gloabal</find>
+      <find>fac</find>
+      <find>layout_take</find>
+      <find>background</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -184,45 +431,21 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/RotationImageActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/PhotoSelectActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/FirstFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/SecondFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/FourthFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ThirdFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/com/xiaomei/passportphoto/library/BottomTabActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/SizeSelectActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/PhotoSelectFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/PassportPhotoFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/ThreadPool.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/WXPayEntryActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/model/User.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/MattingRequest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/UploadRequest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/PhotoController.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/LoginRequest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/model/Photo.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/BaseHttpPost.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/bottom_nav_bar.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/com/xiaomei/passportphoto/library/NavigationPage.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/com/xiaomei/passportphoto/library/BottomNavigationBar.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/com/xiaomei/passportphoto/library/BottomBarHolderActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_passport.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimen.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/fragment/AccountFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_account.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/PictureTakeListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_take.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/BitmapUtils.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/whitebg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/bluebg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/redbg.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/CameraInterface.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/TakeActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/model/RunContext.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/CropImageActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/CustomView.java" />
@@ -230,16 +453,40 @@
         <option value="$PROJECT_DIR$/openCVLibrary340/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/model/PhotoSpec.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/fragment/PassportPhotoFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/asynctask/EyesRecognizeAsyncTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_changebg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/PhotoView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ChangeBGActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/A6PhotoView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/CameraInterface.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/LoginRequest.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/model/Photo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/asynctask/EyesRecognizeAsyncTask.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/BitmapUtils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/BaseHttpPost.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/gradient_button.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/layout_bg.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/layout_background.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/stroke_background.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/line_seperator.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/line_horizotal.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/line_vertical.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_feedback.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ChangeBGActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/AccountAboutActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_account.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/fragment/AccountFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_about.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/BaseActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/account_custom_background.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/TitleBar.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_titlebar.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/arrow.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="30" />
+    <option name="x" value="32" />
     <option name="y" value="23" />
     <option name="width" value="1400" />
     <option name="height" value="802" />
@@ -309,6 +556,26 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="passportphoto" type="462c0819:PsiDirectoryNode" />
+              <item name="asynctask" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="power1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="power1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="passportphoto" type="462c0819:PsiDirectoryNode" />
+              <item name="fragment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="power1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="power1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="passportphoto" type="462c0819:PsiDirectoryNode" />
               <item name="logic" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -320,6 +587,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="passportphoto" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="power1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="power1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="passportphoto" type="462c0819:PsiDirectoryNode" />
+              <item name="myinterface" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="power1" type="b2602c69:ProjectViewProjectNode" />
@@ -346,7 +623,34 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="drawable" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="power1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="power1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
               <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="power1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="power1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="menu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="power1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="power1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="values" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="power1" type="b2602c69:ProjectViewProjectNode" />
@@ -367,15 +671,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -491,7 +795,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="30" y="23" width="1400" height="802" extended-state="0" />
+    <frame x="32" y="23" width="1400" height="802" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
@@ -504,18 +808,18 @@
       <window_info id="Resources Explorer" order="7" weight="0.3298969" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Run" order="0" weight="0.3197183" />
-      <window_info anchor="bottom" id="Logcat" order="1" weight="0.32394367" />
+      <window_info anchor="bottom" id="Logcat" order="1" weight="0.23661971" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.32957748" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.34647888" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.23802817" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.32957748" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32957748" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.34788734" />
-      <window_info anchor="bottom" id="Find" order="8" visible="true" weight="0.45352113" />
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.32676056" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.38732395" />
       <window_info anchor="bottom" id="Android Profiler" order="9" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Gradle" order="2" />
+      <window_info anchor="right" id="Gradle" order="2" weight="0.3298969" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Preview" order="4" weight="0.030191459" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
@@ -525,78 +829,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/RotationImageActivity.java</url>
-          <line>238</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/RotationImageActivity.java</url>
-          <line>305</line>
-          <properties />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/RotationImageActivity.java</url>
-          <line>277</line>
-          <properties />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/RotationImageActivity.java</url>
-          <line>211</line>
-          <properties />
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/RotationImageActivity.java</url>
-          <line>272</line>
-          <properties />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/RotationImageActivity.java</url>
-          <line>111</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/RotationImageActivity.java</url>
-          <line>120</line>
-          <properties />
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/RotationImageActivity.java</url>
-          <line>143</line>
-          <properties />
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/PhotoSelectActivity.java</url>
-          <line>84</line>
-          <properties />
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/PhotoSelectActivity.java</url>
-          <line>132</line>
-          <properties />
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/PhotoSelectActivity.java</url>
-          <line>137</line>
-          <properties />
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/PhotoSelectActivity.java</url>
-          <line>67</line>
-          <properties />
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/MainActivity.java</url>
           <line>115</line>
           <properties />
@@ -604,372 +836,55 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/fragment/PassportPhotoFragment.java</url>
-          <line>72</line>
+          <line>71</line>
           <properties />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/PhotoSelectActivity.java</url>
-          <line>87</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/CameraInterface.java</url>
+          <line>120</line>
           <properties />
-          <option name="timeStamp" value="58" />
+          <option name="timeStamp" value="96" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/CropImageActivity.java</url>
-          <line>133</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ChangeBGActivity.java</url>
+          <line>191</line>
           <properties />
-          <option name="timeStamp" value="84" />
+          <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/CropImageActivity.java</url>
-          <line>100</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/BitmapUtils.java</url>
+          <line>292</line>
           <properties />
-          <option name="timeStamp" value="86" />
+          <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/CustomView.java</url>
-          <line>283</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ChangeBGActivity.java</url>
+          <line>206</line>
           <properties />
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/CustomView.java</url>
-          <line>115</line>
-          <properties />
-          <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ImageProcessingActivity.java</url>
-          <line>80</line>
-          <properties />
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ChangeBackgroundActivity.java</url>
-          <line>95</line>
-          <properties />
-          <option name="timeStamp" value="91" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/SaveImageActivity.java</url>
-          <line>121</line>
-          <properties />
-          <option name="timeStamp" value="92" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/SaveImageActivity.java</url>
-          <line>196</line>
-          <properties />
-          <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/SaveImageActivity.java</url>
-          <line>250</line>
-          <properties />
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/SaveImageActivity.java</url>
-          <line>302</line>
-          <properties />
-          <option name="timeStamp" value="95" />
+          <option name="timeStamp" value="100" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_change_background.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/MattingRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/whitebg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/redbg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="11" lean-forward="true" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bluebg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="11" lean-forward="true" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_take.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/widget/CompoundButton.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/widget/RadioButton.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/model/RunContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/android/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="100" column="23" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
-          <folding>
-            <element signature="e#3967#3968#0" expanded="true" />
-            <element signature="e#4011#4012#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/core/Rect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
-          <folding>
-            <element signature="e#1237#1238#0" expanded="true" />
-            <element signature="e#1275#1276#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/objdetect/CascadeClassifier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="155" column="15" lean-forward="true" selection-start-line="155" selection-start-column="15" selection-end-line="155" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/TakeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="185" selection-start-line="185" selection-end-line="185" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/view/View.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="1357" column="21" selection-start-line="1357" selection-start-column="21" selection-end-line="1357" selection-end-column="21" />
-          <folding>
-            <element signature="e#42415#42416#0" expanded="true" />
-            <element signature="e#42466#42467#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/MyConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/core/Size.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/imgproc/Imgproc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="2865" selection-start-line="2865" selection-end-line="2865" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ChangeBackgroundActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="95" selection-start-line="95" selection-end-line="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ImageProcessingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="245" selection-start-line="245" selection-end-line="245" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/SaveImageActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="206" selection-start-line="206" selection-end-line="206" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/android/AsyncServiceHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/android/StaticHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-385">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/android/OpenCVLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
-          <caret line="106" column="34" selection-start-line="106" selection-start-column="34" selection-end-line="106" selection-end-column="34" />
-          <folding>
-            <element signature="e#2557#2558#0" expanded="true" />
-            <element signature="e#2610#2611#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/os/Looper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/PhotoApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/content/res/Resources.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="119" column="15" selection-start-line="119" selection-start-column="15" selection-end-line="119" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/util/Log.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
-          <folding>
-            <element signature="e#1547#1548#0" expanded="true" />
-            <element signature="e#1598#1599#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/SizeSelectActivity.java" />
-    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/view/LayoutInflater.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#2744#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/graphics/Rect.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-          <folding>
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#598#599#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/fragment/PassportPhotoFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="67" selection-start-line="30" selection-start-column="67" selection-end-line="30" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/os/AsyncTask.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#2364#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_changebg.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_size_select.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_select_paper_size.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_photo_select.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_change_background.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_save_image.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_rotation_image.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_image_processing.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_crop_image.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_change_background.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/bottom_nav_bar.xml">
       <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bb43374553e95a74b846b9d9d8c77eb8/constraint-layout-1.1.2/jars/classes.jar!/android/support/constraint/ConstraintLayout.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="1754" column="33" selection-start-line="1754" selection-start-column="33" selection-end-line="1754" selection-end-column="33" />
-          <folding>
-            <element signature="e#81487#81488#0" expanded="true" />
-            <element signature="e#81524#81525#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/CustomView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="186">
           <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="43" selection-end-column="62" />
           <folding>
             <element signature="e#11719#11720#0" expanded="true" />
@@ -986,115 +901,284 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/CropImageActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/MyConstant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="160" selection-start-line="160" selection-end-line="160" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/model/PhotoSpec.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/graphics/Canvas.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="302" column="16" selection-start-line="302" selection-start-column="16" selection-end-line="302" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/graphics/Bitmap.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/graphics/Matrix.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-          <folding>
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1603#1604#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="61" lean-forward="true" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/asynctask/EyesRecognizeAsyncTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/CameraInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="120" column="98" selection-start-line="120" selection-start-column="98" selection-end-line="120" selection-end-column="98" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/BitmapUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="174" column="46" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ChangeBGActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="217" column="35" selection-start-line="217" selection-start-column="35" selection-end-line="217" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/logic/BaseHttpPost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="69" column="26" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
+        <state relative-caret-position="60">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/PhotoView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="100" column="38" lean-forward="true" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
+        <state relative-caret-position="-75">
+          <caret line="86" column="4" selection-start-line="86" selection-start-column="4" selection-end-line="87" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/A6PhotoView.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_bottom_bar_holder.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_first.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/white_radius_button_selector.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/pressed_white_radius_button.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_passport.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_take.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/layout_bg.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="97" column="40" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/gradient_button.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="10" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/stroke_background.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/line_horizotal.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/line_vertical.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="56" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/appcompat-v7/26.1.0/2b34456c30d6b6e5db5fa3e8fa02f6cebd5531fd/appcompat-v7-26.1.0-sources.jar!/android/support/v7/app/AppCompatActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="137" column="16" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_feedback.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_account.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="368" column="43" selection-start-line="368" selection-start-column="43" selection-end-line="368" selection-end-column="43" />
+          <folding>
+            <element signature="e#3549#5215#0" />
+            <element signature="e#5468#7176#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/view/ViewGroup.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/widget/LinearLayout.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/ChangeBGActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="40" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3917#3918#0" expanded="true" />
-            <element signature="e#3950#3951#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/fragment/AccountFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="743">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/AccountAboutActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/activity/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#315#316#0" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/account_custom_background.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/option_menu_save.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/option_menu_check.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_mainfunction_item.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_changebg.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/redbg.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_radio_button.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_toolbar.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_about.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xiaomei/passportphoto/utils/TitleBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_base.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="46" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/arrow.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_titlebar.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
         </state>
       </provider>
     </entry>

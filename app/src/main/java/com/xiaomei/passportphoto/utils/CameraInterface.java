@@ -117,7 +117,12 @@ public class CameraInterface {
                 Camera.CameraInfo info = new Camera.CameraInfo();
                 Camera.getCameraInfo(cameraId , info);
                 Bitmap rotate = BitmapUtils.adjustPhotoRotation(bmp, info.orientation);
-                Bitmap hover = BitmapUtils.horverImage(rotate,true,false);
+                Bitmap hover;
+                if(info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+                    hover = BitmapUtils.horverImage(rotate, true, false);
+                }else{
+                    hover = rotate;
+                }
                 String imagepath = BitmapUtils.saveBmp2Gallery(context,hover,BitmapUtils.getPictureNameByDate());
                 run.onPictureTake(hover, imagepath);
             }

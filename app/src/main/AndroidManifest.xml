@@ -27,20 +27,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ImageProcessingActivity" />
-        <activity android:name=".activity.RotationImageActivity" />
-        <activity android:name=".activity.CropImageActivity" />
 
         <activity android:name=".activity.TakeActivity"
             android:screenOrientation="portrait">
-
         </activity>
 
-        <activity android:name=".activity.SaveImageActivity" />
-        <activity android:name=".activity.PhotoSelectActivity" />
         <activity android:name=".activity.ChangeBGActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ChangeBackgroundActivity"></activity>
+        <activity android:name=".activity.AccountAboutActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

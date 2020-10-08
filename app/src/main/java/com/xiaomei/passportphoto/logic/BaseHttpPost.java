@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 import android.os.Handler;
+import android.util.Log;
 
 public class BaseHttpPost implements Runnable{
     Map<String, Serializable> mParams = new HashMap<String,Serializable>();
@@ -68,6 +69,7 @@ public class BaseHttpPost implements Runnable{
                         String value = new String((byte[])entry.getValue(),"UTF-8");
                         buffer.append(entry.getKey()).append("=").append(value) .append("&");
                     }else{
+                        Log.d("basehttppost",entry.getKey()+":"+entry.getValue());
                         buffer.append(entry.getKey()).append("=").append(entry.getValue().toString()).append("&");
                     }
                 }

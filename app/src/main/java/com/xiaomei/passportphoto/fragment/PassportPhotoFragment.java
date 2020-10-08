@@ -16,7 +16,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.xiaomei.passportphoto.R;
-import com.xiaomei.passportphoto.activity.PhotoSelectActivity;
 import com.xiaomei.passportphoto.activity.TakeActivity;
 import com.xiaomei.passportphoto.model.PhotoSpec;
 import com.xiaomei.passportphoto.model.RunContext;

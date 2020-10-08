@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class Photo implements Serializable {
     public String mPID;
-    public String mThumbPath;
-    public byte[] mThumbnail;
+    public String mThumbnail;
+    public byte[] mDownloadThumbnail;
     public String mPhotoOrigin;
-    public byte[] mPhotoPost;
+    public String mPhotoPost;
     public byte[] mPhotoMat;
     @Override
     public String toString() {

@@ -1,50 +1,26 @@
 package com.xiaomei.passportphoto.activity;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
-import android.provider.MediaStore;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.baidu.aip.bodyanalysis.AipBodyAnalysis;
 import com.baidu.aip.util.Base64Util;
 import com.baidu.aip.util.Util;
 import com.xiaomei.passportphoto.R;
-import com.xiaomei.passportphoto.asynctask.SaveImageAsyncTask;
 import com.xiaomei.passportphoto.logic.PhotoController;
 import com.xiaomei.passportphoto.model.Photo;
 import com.xiaomei.passportphoto.model.RunContext;
-import com.xiaomei.passportphoto.model.User;
 import com.xiaomei.passportphoto.utils.A6PhotoView;
 import com.xiaomei.passportphoto.utils.BitmapUtils;
-import com.xiaomei.passportphoto.utils.MyConstant;
 import com.xiaomei.passportphoto.utils.PhotoView;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.File;
-import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.util.Base64;
-import java.util.Date;
-import java.util.HashMap;
 
 public class ChangeBGActivity extends AppCompatActivity implements View.OnClickListener {
     private Handler mHandle = new Handler();
@@ -81,7 +57,6 @@ public class ChangeBGActivity extends AppCompatActivity implements View.OnClickL
                     dialog.dismiss();
                 }
                 byte[] fg = RunContext.getInstance().mUser.mCurrent.mPhotoMat;
-                BitmapUtils.saveByteArray(fg, BitmapUtils.filename2);
                 Bitmap bitmap = BitmapUtils.decodeBitmapFromByteArray(fg);
                 imgPhoto.setImageBitmap(bitmap,true,true);
                 btn_white.setSelected(true);
@@ -90,7 +65,7 @@ public class ChangeBGActivity extends AppCompatActivity implements View.OnClickL
         });
         dialog = new ProgressDialog(this);
         dialog.setMessage("处理中，请稍候.");
-        dialog.setCancelable(false);
+        dialog.setCancelable(true);
         dialog.show();
     }
 
@@ -210,12 +185,29 @@ public class ChangeBGActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void savePhoto(){
-        if(btn_6inch.isChecked()){
-            BitmapUtils.saveBmp2Gallery(this,mA6PhotoView.getBitmap(),BitmapUtils.getPictureNameByDate()+"_A6");
-        }else{
-            BitmapUtils.saveBmp2Gallery(this,mFinalBitmap,BitmapUtils.getPictureNameByDate()+"_single");
-        }
-        Toast.makeText(this,"保存成功",Toast.LENGTH_LONG).show();
+        Photo p = RunContext.getInstance().mUser.mCurrent;
+        String imagePath = BitmapUtils.getTmpPath(this);
+
+        BitmapUtils.saveBitmap(mFinalBitmap,imagePath);
+        byte[] file = BitmapUtils.readFileToByteArray(imagePath);
+        p.mPhotoPost = Util.uriEncode(Base64Util.encode(file),true);
+
+        Bitmap thumb = BitmapUtils.getThumbnailPhoto(mFinalBitmap);
+        BitmapUtils.saveBitmap(thumb,imagePath);
+        file = BitmapUtils.readFileToByteArray(imagePath);
+        p.mThumbnail = Util.uriEncode(Base64Util.encode(file),true);
+
+        PhotoController.getInstance().sendUploadRequest(p, mHandle, new Runnable() {
+            public void run(){
+                if(btn_6inch.isChecked()){
+                    BitmapUtils.saveBmp2Gallery(ChangeBGActivity.this,mA6PhotoView.getBitmap(),BitmapUtils.getPictureNameByDate()+"_A6");
+                }else{
+                    BitmapUtils.saveBmp2Gallery(ChangeBGActivity.this,mFinalBitmap,BitmapUtils.getPictureNameByDate()+"_single");
+                }
+                Toast.makeText(ChangeBGActivity.this,"保存成功",Toast.LENGTH_LONG).show();
+            }
+
+        });
     }
 
 
