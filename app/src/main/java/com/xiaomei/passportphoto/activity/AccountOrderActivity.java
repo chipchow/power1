@@ -25,7 +25,7 @@ public class AccountOrderActivity extends BaseActivity {
         mListView = findViewById(R.id.listview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mListView.setLayoutManager(layoutManager);
-        PhotoAdaper adaper = new PhotoAdaper(RunContext.getInstance().mUser.getmPhotoList());
+        PhotoAdaper adaper = new PhotoAdaper(RunContext.getInstance().getUser().getmPhotoList());
         mListView.setAdapter(adaper);
     }
 }

@@ -24,7 +24,7 @@ public class MattingRequest extends BaseHttpPost {
             byte[] protomat = mJson.getString("photomat").getBytes();
             String photoid = mJson.getString("photoid");
             byte[] image = Base64.decode(protomat, Base64.DEFAULT);
-            Photo p = RunContext.getInstance().mUser.mCurrent;
+            Photo p = RunContext.getInstance().getUser().mCurrent;
             if(p != null){
                 p.mPID = photoid;
                 p.mNetForMatting_PhotoMat = image;

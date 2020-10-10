@@ -12,6 +12,7 @@ import android.widget.Button;
 import com.xiaomei.passportphoto.R;
 import com.xiaomei.passportphoto.activity.AccountAboutActivity;
 import com.xiaomei.passportphoto.activity.AccountFeedbackActivity;
+import com.xiaomei.passportphoto.activity.AccountOrderActivity;
 
 /**
  * Created by Adib on 13-Apr-17.
@@ -58,7 +59,10 @@ public class AccountFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view){
         switch (view.getId()){
-            case R.id.layout_order:
+            case R.id.layout_order:{
+                Intent intent = new Intent(mActivity, AccountOrderActivity.class);
+                mActivity.startActivity(intent);
+            }
                 break;
             case R.id.layout_customercenter:
                 break;

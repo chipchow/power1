@@ -10,14 +10,15 @@ import java.io.Serializable;
 public class Photo implements Serializable {
     public String mPID;
     public String mThumbnailPath;
+    public String mPostPath;
     public int mSpecType;
     public int mBackGround;
     public PhotoSpec mSpec;
     public String mOrderNo;
     public float mCost;
     public boolean mPaid;
+    public boolean isLocal;
     public String mNetForUpload_PhotoThumbnail;
-    public byte[] mNetForLogin_DownloadThumbnail;
     public String mNetForMatting_PhotoOrigin;
     public String mNetForUpload_PhotoPost;
     public byte[] mNetForMatting_PhotoMat;
@@ -81,11 +82,8 @@ public class Photo implements Serializable {
         return spec+"("+bg+")";
     }
 
-    public String setNetForLoginThumbnail(Context context, byte[] bytes, String pid){
-        mNetForLogin_DownloadThumbnail = bytes;
-        String imagePath = BitmapUtils.getThumbPath(context, pid);
-        BitmapUtils.saveByteArray(bytes,imagePath);
-        return imagePath;
+    public String fixUrl(){
+        return null;
     }
 
     @Override

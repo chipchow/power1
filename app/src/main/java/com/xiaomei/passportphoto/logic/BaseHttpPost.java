@@ -137,11 +137,11 @@ public class BaseHttpPost implements Runnable{
                     };
                     LoginRequest lr = new LoginRequest(mHandler,logincb);
                     Map<String, Serializable> params = lr.mParams;
-                    params.put("loginid", RunContext.getInstance().mUser.mUserID);
+                    params.put("loginid", RunContext.getInstance().getUser().mUserID);
                     params.put("userver",RunContext.getInstance().mVer);
                     params.put("usermodel",RunContext.getInstance().mModel);
                     params.put("useros",RunContext.getInstance().mOS);
-                    params.put("photoidlist",RunContext.getInstance().mUser.getPhotoListString());
+                    params.put("photoidlist",RunContext.getInstance().getUser().getPhotoListString());
                     lr.doRequest();
                     break;
                 case 3://sign error

@@ -244,6 +244,7 @@ public class BitmapUtils {
         return context.getFilesDir() + File.separator + "tmp";
     }
 
+
     public static String getThumbPath(Context context, String pid){
         return context.getFilesDir() + File.separator + pid + ".jpg";
     }

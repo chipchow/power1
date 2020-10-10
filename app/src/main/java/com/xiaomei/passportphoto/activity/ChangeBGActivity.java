@@ -51,7 +51,7 @@ public class ChangeBGActivity extends BaseActivity implements View.OnClickListen
 
         byte[] file = BitmapUtils.readFileToByteArray(imagePath);
         p.mNetForMatting_PhotoOrigin = Util.uriEncode(Base64Util.encode(file),true);
-        RunContext.getInstance().mUser.mCurrent = p;
+        RunContext.getInstance().getUser().mCurrent = p;
 
         PhotoController.getInstance().sendMattingRequest(p, mHandle, new Runnable() {
             @Override
@@ -59,7 +59,7 @@ public class ChangeBGActivity extends BaseActivity implements View.OnClickListen
                 if (dialog.isShowing()) {
                     dialog.dismiss();
                 }
-                byte[] fg = RunContext.getInstance().mUser.mCurrent.mNetForMatting_PhotoMat;
+                byte[] fg = RunContext.getInstance().getUser().mCurrent.mNetForMatting_PhotoMat;
                 Bitmap bitmap = BitmapUtils.decodeBitmapFromByteArray(fg);
                 imgPhoto.setImageBitmap(bitmap,true,true);
                 btn_white.setSelected(true);
@@ -111,7 +111,6 @@ public class ChangeBGActivity extends BaseActivity implements View.OnClickListen
         super.onClick(view);
         switch (view.getId()) {
             case R.id.button_save:
-                addPhotoToList();
 //                Intent intent = new Intent(this,CropImageActivity.class);
 //                startActivity(intent);
                 uploadPhoto();
@@ -134,6 +133,7 @@ public class ChangeBGActivity extends BaseActivity implements View.OnClickListen
                 imgPhoto.setImageBitmap(mFinalBitmap,false,false);
                 btn_single.setChecked(true);
                 btn_6inch.setChecked(false);
+                addPhotoToList();
                 break;
             case R.id.imageButton_red:
                 btn_blue.setSelected(false);
@@ -193,7 +193,7 @@ public class ChangeBGActivity extends BaseActivity implements View.OnClickListen
     }
 
     private String addPhotoToList(){
-        String pid = RunContext.getInstance().mUser.mCurrent.mPID;
+        String pid = RunContext.getInstance().getUser().mCurrent.mPID;
         Photo p = new Photo(pid,RunContext.getInstance().mSpecType);
         p.mSpec = RunContext.getInstance().mSpec;
         String imagePath = BitmapUtils.getThumbPath(this, pid);
@@ -201,19 +201,23 @@ public class ChangeBGActivity extends BaseActivity implements View.OnClickListen
         BitmapUtils.saveBitmap(thumb,imagePath);
         p.mThumbnailPath = imagePath;
         p.mBackGround = RunContext.getInstance().mBackground;
-        RunContext.getInstance().mUser.getmPhotoList().add(p);
+        RunContext.getInstance().getUser().getmPhotoList().add(p);
+
+        RunContext.getInstance().save(this);
         return imagePath;
     }
 
     private void uploadPhoto(){
-        Photo p = RunContext.getInstance().mUser.mCurrent;
+        Photo p0 = RunContext.getInstance().getUser().getmPhotoList().get(0);
+        Photo p = RunContext.getInstance().getUser().mCurrent;
         String imagePath = BitmapUtils.getTmpPath(this);
-
+        p0.mPaid = true;
+        RunContext.getInstance().save(this);
         BitmapUtils.saveBitmap(mFinalBitmap,imagePath);
         byte[] file = BitmapUtils.readFileToByteArray(imagePath);
         p.mNetForUpload_PhotoPost = Util.uriEncode(Base64Util.encode(file),true);
 
-        file = BitmapUtils.readFileToByteArray(p.mThumbnailPath);
+        file = BitmapUtils.readFileToByteArray(p0.mThumbnailPath);
         p.mNetForUpload_PhotoThumbnail = Util.uriEncode(Base64Util.encode(file),true);
 
         PhotoController.getInstance().sendUploadRequest(p, mHandle, new Runnable() {

@@ -2,10 +2,11 @@ package com.xiaomei.passportphoto.model;
 
 import org.json.JSONArray;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
+public class User implements Serializable {
     public String mUserID;
     public String mUserName;
     public Photo mCurrent;
@@ -25,7 +26,7 @@ public class User {
 
     public String getPhotoListString(){
         JSONArray array = new JSONArray();
-        if(mPhotoList == null){
+        if(mPhotoList == null|| mPhotoList.size() == 0){
             return "";
         }
         for(Photo p:mPhotoList){

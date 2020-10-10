@@ -1,9 +1,9 @@
 package com.xiaomei.passportphoto.logic;
 
 import android.os.Handler;
-import android.util.Base64;
 
 import com.xiaomei.passportphoto.model.Photo;
+import com.xiaomei.passportphoto.model.PhotoSpec;
 import com.xiaomei.passportphoto.model.RunContext;
 import com.xiaomei.passportphoto.model.User;
 
@@ -28,6 +28,7 @@ public class LoginRequest extends BaseHttpPost {
             String session = mJson.getString("session");
             RunContext.getInstance().setSession(session);
             String updateUrl = mJson.getString("updateapk");
+            RunContext.getInstance().mCost = mJson.getInt("price");
             JSONArray photolist = mJson.getJSONArray("photolist");
             int listsize = photolist.length();
             if(listsize > 0) {
@@ -35,13 +36,18 @@ public class LoginRequest extends BaseHttpPost {
 
                 for (int i = 0; i < photolist.length(); i++) {
                     JSONObject o = photolist.getJSONObject(i);
-                    String pid = o.getString("photoid");
+                    String pid = o.getString("pid");
                     Photo p = new Photo(pid,0);
-                    byte[] thumb = o.getString("thumbnail").getBytes();
-                    byte[] bytes = Base64.decode(thumb, Base64.DEFAULT);
-                    p.setNetForLoginThumbnail(PhotoApp.getAppContext(),bytes,pid);
+                    p.mThumbnailPath =o.getString("thumbnail");
+                    p.mPostPath=o.getString("p");
+                    p.fixUrl();
+                    p.mPaid = true;
+                    p.mBackGround = o.getInt("bg");
+                    p.mSpecType = o.getInt("spec");
+                    p.mSpec = new PhotoSpec(p.mSpecType);
                     photoList.add(p);
                 }
+                RunContext.getInstance().save(PhotoApp.getAppContext());
             }
 
         }catch(JSONException e){

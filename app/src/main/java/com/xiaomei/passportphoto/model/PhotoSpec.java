@@ -1,6 +1,8 @@
 package com.xiaomei.passportphoto.model;
 
-public class PhotoSpec {
+import java.io.Serializable;
+
+public class PhotoSpec implements Serializable {
     public int mWidth;
     public int mHeight;
     public int mSizeW;
@@ -16,5 +18,11 @@ public class PhotoSpec {
         mSmallest = smallest;
         mBigest = bigest;
         mDPI = dpi;
+    }
+    public PhotoSpec(int specType){
+        mWidth = 295;
+        mHeight = 413;
+        mSizeH = 25;
+        mSizeW = 35;
     }
 }

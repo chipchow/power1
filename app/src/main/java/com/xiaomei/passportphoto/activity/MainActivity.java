@@ -65,9 +65,6 @@ public class MainActivity extends BottomBarHolderActivity implements PassportPho
     }
 
     public void initUser(){
-        RunContext.getInstance().mUser = new User();
-        RunContext.getInstance().mUser.mUserID = "123456789";
-
         if(!PhotoController.getInstance().sessionIsValid()){
             PhotoController.getInstance().sendLoginRequest(mHandle, new Runnable() {
                 @Override

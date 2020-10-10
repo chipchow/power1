@@ -4,6 +4,7 @@ import android.os.Handler;
 
 import com.xiaomei.passportphoto.model.Photo;
 import com.xiaomei.passportphoto.model.RunContext;
+import com.xiaomei.passportphoto.model.User;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -33,11 +34,11 @@ public class PhotoController {
         LoginRequest lr = new LoginRequest(handle,run);
         Map<String, Serializable> params = lr.mParams;
         params.put("cmd","login");
-        params.put("loginid", RunContext.getInstance().mUser.mUserID);
+        params.put("loginid", RunContext.getInstance().getUser().mUserID);
         params.put("userver",RunContext.getInstance().mVer);
         params.put("usermodel",RunContext.getInstance().mModel);
         params.put("useros",RunContext.getInstance().mOS);
-        params.put("photoidlist",RunContext.getInstance().mUser.getPhotoListString());
+        params.put("photoidlist",RunContext.getInstance().getUser().getPhotoListString());
         lr.doRequest();
     }
 
@@ -45,7 +46,7 @@ public class PhotoController {
         MattingRequest mr = new MattingRequest(handle,run);
         Map<String, Serializable> params = mr.mParams;
         params.put("cmd","matting");
-        params.put("loginid",RunContext.getInstance().mUser.mUserID);
+        params.put("loginid",RunContext.getInstance().getUser().mUserID);
         params.put("session",RunContext.getInstance().mSession);
         params.put("photoorigin", photo.mNetForMatting_PhotoOrigin);
         mr.doRequest();
@@ -55,11 +56,22 @@ public class PhotoController {
         UploadRequest ur = new UploadRequest(handle,run);
         Map<String, Serializable> params = ur.mParams;
         params.put("cmd","upload");
-        params.put("loginid",RunContext.getInstance().mUser.mUserID);
+        User user = RunContext.getInstance().getUser();
+        params.put("loginid",RunContext.getInstance().getUser().mUserID);
         params.put("session",RunContext.getInstance().mSession);
         params.put("photopost",photo.mNetForUpload_PhotoPost);
         params.put("thumbnail",photo.mNetForUpload_PhotoThumbnail);
         params.put("photoid",photo.mPID);
+        params.put("spec", RunContext.getInstance().mSpecType);
+        params.put("w",RunContext.getInstance().mSpec.mSizeW);
+        params.put("h",RunContext.getInstance().mSpec.mSizeH);
+        params.put("bg",RunContext.getInstance().mBackground);
         ur.doRequest();
+    }
+
+    public ImageRequest getPhotoByUrl(String url, Handler handle, Runnable run){
+        ImageRequest ir = new ImageRequest(url,handle,run);
+        ir.doRequest();
+        return ir;
     }
 }
